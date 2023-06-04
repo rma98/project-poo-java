@@ -1,48 +1,45 @@
 package maquiagem;
 
 public class Base extends Maquiagem {
-	private String cobertura;
+	private String tipoBase;
 
-	public Base(String nome, double preco, String cor, String cobertura) {
-		super(nome, preco, cor);
-		this.cobertura = cobertura;
-	}
-	
-	public Base() {
-		
-	}
-
-	@Override
-	public void aplicar() {
-		System.out.println("Aplicando base " + getNome());
-		System.out.println("Cor: " + getCor());
-		System.out.println("Cobertura: " + cobertura);
-		System.out.println("===========");
+	public Base(String nome, String marca, double preco, String cor, String tipoBase) {
+		super(nome, marca, preco, cor);
+		this.tipoBase = tipoBase;
 	}
 
 	@Override
 	public void exibirInformacoes() {
 		System.out.println("Produto: " + getNome());
+		System.out.println("Marca: " + getMarca());
 		System.out.println("Preço: R$" + getPreco());
 		System.out.println("Cor: " + getCor());
-		System.out.println("Cobertura: " + cobertura);
+		System.out.println("Tipo da Base: " + tipoBase);
 		System.out.println("Categoria: Maquiagem");
 		System.out.println("===========");
 	}
-	
+
 	@Override
 	public void calcularDesconto(double percentualDesconto) {
 		double desconto = getPreco() * percentualDesconto / 100;
-        double preçoComDesconto = getPreco() - desconto;
-        System.out.println("Preço da base com desconto de " + percentualDesconto + "%: R$" + preçoComDesconto);
+		double preçoComDesconto = getPreco() - desconto;
+		System.out.println("Preço da base com desconto de " + percentualDesconto + "%: R$" + preçoComDesconto);
 	}
 
-	public String getCobertura() {
-		return cobertura;
+	@Override
+	public void aplicar() {
+		System.out.println("Aplicando base: " + getNome());
+		System.out.println("Cor: " + getCor());
+		System.out.println("Tipo da base: " + tipoBase);
+		System.out.println("===========");
 	}
 
-	public void setCobertura(String cobertura) {
-		this.cobertura = cobertura;
+	public String getTipoBase() {
+		return tipoBase;
+	}
+
+	public void setTipoBase(String tipoBase) {
+		this.tipoBase = tipoBase;
 	}
 
 }

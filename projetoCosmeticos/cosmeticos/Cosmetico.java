@@ -1,21 +1,18 @@
 package cosmeticos;
 
 public abstract class Cosmetico {
-    private String nome;
-    private double preco;
+	protected String nome;
+	protected String marca;
+	protected double preco;
 
-    public Cosmetico(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
-    
-    public Cosmetico() {
-    	
+	public Cosmetico(String nome, String marca, double preco) {
+		super();
+		this.nome = nome;
+		this.marca = marca;
+		this.preco = preco;
 	}
-    
-    public abstract void calcularDesconto(double percentualDesconto);
-    
-    public abstract void exibirInformacoes();
+	
+	
 
 	public String getNome() {
 		return nome;
@@ -23,6 +20,14 @@ public abstract class Cosmetico {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	public double getPreco() {

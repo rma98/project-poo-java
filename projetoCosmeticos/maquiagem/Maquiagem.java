@@ -3,18 +3,18 @@ package maquiagem;
 import cosmeticos.Cosmetico;
 
 public abstract class Maquiagem extends Cosmetico {
-    private String cor;
+	protected String cor;
 
-    public Maquiagem(String nome, double preco, String cor) {
-        super(nome, preco);
-        this.cor = cor;
-    }
-    
-    public Maquiagem() {
-    	
+	public Maquiagem(String nome, String marca, double preco, String cor) {
+		super(nome, marca, preco);
+		this.cor = cor;
 	}
+	
+	
 
-    public abstract void aplicar();
+	public abstract void exibirInformacoes();
+	public abstract void calcularDesconto(double percentualDesconto);
+	public abstract void aplicar();
 
 	public String getCor() {
 		return cor;
