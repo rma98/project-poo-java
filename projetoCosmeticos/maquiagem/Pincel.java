@@ -8,14 +8,8 @@ public class Pincel extends Maquiagem {
 		this.tamanho = tamanho;
 	}
 
-	@Override
-	public void exibirInformacoes() {
-		 System.out.println("Produto: " + getNome());
-	        System.out.println("Preço: R$" + getPreco());
-	        System.out.println("Cor: " + getCor());
-	        System.out.println("Tamanho: " + tamanho);
-	        System.out.println("Categoria: Maquiagem");
-	        System.out.println("===========");
+	public Pincel() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

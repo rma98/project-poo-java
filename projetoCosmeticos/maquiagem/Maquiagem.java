@@ -10,9 +10,10 @@ public abstract class Maquiagem extends Cosmetico {
 		this.cor = cor;
 	}
 	
+	public Maquiagem() {
+		// TODO Auto-generated constructor stub
+	}
 	
-
-	public abstract void exibirInformacoes();
 	public abstract void calcularDesconto(double percentualDesconto);
 	public abstract void aplicar();
 

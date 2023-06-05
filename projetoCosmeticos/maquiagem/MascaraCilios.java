@@ -8,15 +8,8 @@ public class MascaraCilios extends Maquiagem {
 		this.tipoMascaraCilios = tipoMascaraCilios;
 	}
 
-	@Override
-	public void exibirInformacoes() {
-		System.out.println("Produto: " + getNome());
-		System.out.println("Marca: " + getMarca());
-        System.out.println("Preço: R$" + getPreco());
-        System.out.println("Cor: " + getCor());
-        System.out.println("Tipo da Máscara de Cílios: " + tipoMascaraCilios);
-        System.out.println("Categoria: Maquiagem");
-        System.out.println("===========");
+	public MascaraCilios() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

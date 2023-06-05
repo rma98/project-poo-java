@@ -8,15 +8,8 @@ public class PaletaSombras extends Maquiagem {
 		this.numeroCores = numeroCores;
 	}
 
-	@Override
-	public void exibirInformacoes() {
-		System.out.println("Produto: " + getNome());
-		System.out.println("Marca: " + getMarca());
-		System.out.println("Preço: R$" + getPreco());
-		System.out.println("Cor: " + getCor());
-		System.out.println("Número de cores: " + numeroCores);
-		System.out.println("Categoria: Maquiagem");
-		System.out.println("===========");
+	public PaletaSombras() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

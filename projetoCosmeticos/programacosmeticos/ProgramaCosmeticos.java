@@ -50,7 +50,7 @@ public class ProgramaCosmeticos {
 	}
 
 	private static void exibirMenu() {
-		System.out.println("---------- MENU ----------");
+		System.out.println("---------- MENU DE MAQUIAGENS ----------");
 		System.out.println("1. Adicionar item");
 		System.out.println("2. Atualizar item");
 		System.out.println("3. Visualizar itens");
@@ -58,6 +58,7 @@ public class ProgramaCosmeticos {
 		System.out.println("5. Visualizar todos os itens do Estoque de Maquiagem");
 		System.out.println("6. Aplicar produto e desconto");
 		System.out.println("7. Sair");
+		System.out.println("------------------------------------------------------------");
 		System.out.print("Escolha uma opção: ");
 	}
 
@@ -190,7 +191,7 @@ public class ProgramaCosmeticos {
 
 		switch (opcao) {
 		case 1:
-			System.out.println("Itens de Base:");
+			System.out.print("Informe o índice:");
 			int indexBase = scanner.nextInt();
 			scanner.nextLine(); // Limpar o buffer do scanner
 

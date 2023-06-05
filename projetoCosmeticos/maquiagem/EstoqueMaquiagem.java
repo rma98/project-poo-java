@@ -129,13 +129,14 @@ public class EstoqueMaquiagem {
 	public Base consultarBase(int index) {
 		if (index >= 0 && index < bases.size()) {
 			Base base = bases.get(index);
+			System.out.println("======================");
 			System.out.println("Produto: " + base.getNome());
 			System.out.println("Marca: " + base.getMarca());
 			System.out.println("Preço: R$" + base.getPreco());
 			System.out.println("Cor: " + base.getCor());
 			System.out.println("Tipo da Base: " + base.getTipoBase());
 			System.out.println("Categoria: Maquiagem");
-			System.out.println("===========");
+			System.out.println("======================");
 			return base;
 		} else {
 			System.out.println("Índice inválido");

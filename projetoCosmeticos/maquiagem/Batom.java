@@ -8,17 +8,8 @@ public class Batom extends Maquiagem {
 		this.tipoBatom = tipoBatom;
 	}
 
-
-
-	@Override
-	public void exibirInformacoes() {
-		System.out.println("Produto: " + getNome());
-		System.out.println("Marca: " + getMarca());
-		System.out.println("Preço: R$" + getPreco());
-		System.out.println("Cor: " + getCor());
-		System.out.println("Tipo do batom: " + tipoBatom);
-		System.out.println("Categoria: Maquiagem");
-		System.out.println("===========");
+	public Batom() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

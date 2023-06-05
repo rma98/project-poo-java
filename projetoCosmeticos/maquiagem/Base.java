@@ -7,16 +7,9 @@ public class Base extends Maquiagem {
 		super(nome, marca, preco, cor);
 		this.tipoBase = tipoBase;
 	}
-
-	@Override
-	public void exibirInformacoes() {
-		System.out.println("Produto: " + getNome());
-		System.out.println("Marca: " + getMarca());
-		System.out.println("Preço: R$" + getPreco());
-		System.out.println("Cor: " + getCor());
-		System.out.println("Tipo da Base: " + tipoBase);
-		System.out.println("Categoria: Maquiagem");
-		System.out.println("===========");
+	
+	public Base() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -28,10 +21,11 @@ public class Base extends Maquiagem {
 
 	@Override
 	public void aplicar() {
+		System.out.println("======================");
 		System.out.println("Aplicando base: " + getNome());
 		System.out.println("Cor: " + getCor());
 		System.out.println("Tipo da base: " + tipoBase);
-		System.out.println("===========");
+		System.out.println("======================");
 	}
 
 	public String getTipoBase() {
