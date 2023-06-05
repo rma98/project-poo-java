@@ -41,5 +41,9 @@ public class Base extends Maquiagem {
 	public void setTipoBase(String tipoBase) {
 		this.tipoBase = tipoBase;
 	}
+	
+	public String getNome() {
+        return super.getNome();
+    }
 
 }

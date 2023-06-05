@@ -128,7 +128,15 @@ public class EstoqueMaquiagem {
 
 	public Base consultarBase(int index) {
 		if (index >= 0 && index < bases.size()) {
-			return bases.get(index);
+			Base base = bases.get(index);
+			System.out.println("Produto: " + base.getNome());
+			System.out.println("Marca: " + base.getMarca());
+			System.out.println("Preço: R$" + base.getPreco());
+			System.out.println("Cor: " + base.getCor());
+			System.out.println("Tipo da Base: " + base.getTipoBase());
+			System.out.println("Categoria: Maquiagem");
+			System.out.println("===========");
+			return base;
 		} else {
 			System.out.println("Índice inválido");
 			return null;
@@ -170,4 +178,45 @@ public class EstoqueMaquiagem {
 			return null;
 		}
 	}
+
+	public List<Base> getBases() {
+		return bases;
+	}
+
+	public void setBases(List<Base> bases) {
+		this.bases = bases;
+	}
+
+	public List<Batom> getBatons() {
+		return batons;
+	}
+
+	public void setBatons(List<Batom> batons) {
+		this.batons = batons;
+	}
+
+	public List<MascaraCilios> getMascarasCilios() {
+		return mascarasCilios;
+	}
+
+	public void setMascarasCilios(List<MascaraCilios> mascarasCilios) {
+		this.mascarasCilios = mascarasCilios;
+	}
+
+	public List<PaletaSombras> getPaletasSombras() {
+		return paletasSombras;
+	}
+
+	public void setPaletasSombras(List<PaletaSombras> paletasSombras) {
+		this.paletasSombras = paletasSombras;
+	}
+
+	public List<Pincel> getPincels() {
+		return pincels;
+	}
+
+	public void setPincels(List<Pincel> pincels) {
+		this.pincels = pincels;
+	}
+
 }
