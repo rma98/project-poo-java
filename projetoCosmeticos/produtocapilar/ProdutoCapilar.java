@@ -3,14 +3,17 @@ package produtocapilar;
 import cosmeticos.Cosmetico;
 
 public abstract class ProdutoCapilar extends Cosmetico {
-    private String tipoCabelo;
+	protected String tipoCabelo;
+	protected String tipo;
 
-    public ProdutoCapilar(String nome, double preco, String tipoCabelo) {
-        super(nome, preco);
-        this.tipoCabelo = tipoCabelo;
-    }
+	public ProdutoCapilar(String nome, String marca, double preco, String tipoCabelo, String tipo) {
+		super(nome, marca, preco);
+		this.tipoCabelo = tipoCabelo;
+		this.tipo = tipo;
+	}
 
-    public abstract void aplicar();
+	public abstract void calcularDesconto(double percentualDesconto);
+	public abstract void aplicar();
 
 	public String getTipoCabelo() {
 		return tipoCabelo;
@@ -18,6 +21,14 @@ public abstract class ProdutoCapilar extends Cosmetico {
 
 	public void setTipoCabelo(String tipoCabelo) {
 		this.tipoCabelo = tipoCabelo;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

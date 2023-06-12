@@ -12,9 +12,7 @@ public abstract class Cosmetico {
 		this.preco = preco;
 	}
 	
-	public Cosmetico() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public String getNome() {
 		return nome;

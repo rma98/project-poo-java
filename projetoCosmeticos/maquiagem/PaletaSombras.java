@@ -8,9 +8,7 @@ public class PaletaSombras extends Maquiagem {
 		this.numeroCores = numeroCores;
 	}
 
-	public PaletaSombras() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {
@@ -21,7 +19,7 @@ public class PaletaSombras extends Maquiagem {
 
 	@Override
 	public void aplicar() {
-		System.out.println("Aplicando sombra da paleta: " + getNome());
+		System.out.println("Aplicando sombra: " + getNome());
 		System.out.println("Cor: " + getCor());
 		System.out.println("Número de cores: " + numeroCores);
 		System.out.println("===========");
@@ -33,6 +31,10 @@ public class PaletaSombras extends Maquiagem {
 
 	public void setNumeroCores(int numeroCores) {
 		this.numeroCores = numeroCores;
+	}
+	
+	public String getNome() {
+		return super.getNome();
 	}
 
 }

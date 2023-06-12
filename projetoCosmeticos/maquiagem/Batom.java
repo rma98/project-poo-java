@@ -8,9 +8,7 @@ public class Batom extends Maquiagem {
 		this.tipoBatom = tipoBatom;
 	}
 
-	public Batom() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {
@@ -32,6 +30,10 @@ public class Batom extends Maquiagem {
 
 	public void setTipoBatom(String tipoBatom) {
 		this.tipoBatom = tipoBatom;
+	}
+	
+	public String getNome() {
+		return super.getNome();
 	}
 
 }

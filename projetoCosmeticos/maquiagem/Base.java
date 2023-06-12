@@ -8,9 +8,7 @@ public class Base extends Maquiagem {
 		this.tipoBase = tipoBase;
 	}
 	
-	public Base() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

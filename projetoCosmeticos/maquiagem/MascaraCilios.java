@@ -8,9 +8,7 @@ public class MascaraCilios extends Maquiagem {
 		this.tipoMascaraCilios = tipoMascaraCilios;
 	}
 
-	public MascaraCilios() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {
@@ -35,4 +33,7 @@ public class MascaraCilios extends Maquiagem {
 		this.tipoMascaraCilios = tipoMascaraCilios;
 	}
 	
+	public String getNome() {
+		return super.getNome();
+	}
 }

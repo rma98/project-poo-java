@@ -8,14 +8,14 @@ public class EstoqueMaquiagem {
 	private List<Batom> batons;
 	private List<MascaraCilios> mascarasCilios;
 	private List<PaletaSombras> paletasSombras;
-	private List<Pincel> pincels;
+	private List<Pincel> pinceis;
 
 	public EstoqueMaquiagem() {
 		bases = new ArrayList<>();
 		batons = new ArrayList<>();
 		mascarasCilios = new ArrayList<>();
 		paletasSombras = new ArrayList<>();
-		pincels = new ArrayList<>();
+		pinceis = new ArrayList<>();
 	}
 
 	// Métodos de adição de produtos
@@ -37,7 +37,7 @@ public class EstoqueMaquiagem {
 	}
 
 	public void adicionarPincel(Pincel pincel) {
-		pincels.add(pincel);
+		pinceis.add(pincel);
 	}
 
 	// Métodos de atualização de produtos
@@ -75,8 +75,8 @@ public class EstoqueMaquiagem {
 	}
 
 	public void atualizarPincel(int index, Pincel pincel) {
-		if (index >= 0 && index < pincels.size()) {
-			pincels.set(index, pincel);
+		if (index >= 0 && index < pinceis.size()) {
+			pinceis.set(index, pincel);
 		} else {
 			System.out.println("Índice inválido");
 		}
@@ -116,9 +116,9 @@ public class EstoqueMaquiagem {
 		}
 	}
 
-	public void removerPincels(int index) {
-		if (index >= 0 && index < pincels.size()) {
-			pincels.remove(index);
+	public void removerPinceis(int index) {
+		if (index >= 0 && index < pinceis.size()) {
+			pinceis.remove(index);
 		} else {
 			System.out.println("Índice inválido");
 		}
@@ -146,7 +146,16 @@ public class EstoqueMaquiagem {
 
 	public Batom consultarBatom(int index) {
 		if (index >= 0 && index < batons.size()) {
-			return batons.get(index);
+			Batom batom = batons.get(index);
+			System.out.println("======================");
+			System.out.println("Produto: " + batom.getNome());
+			System.out.println("Marca: " + batom.getMarca());
+			System.out.println("Preço: " + batom.getPreco());
+			System.out.println("Cor: " + batom.getCor());
+			System.out.println("Tipo do batom: " + batom.getTipoBatom());
+			System.out.println("Categoria: Maquiagem");
+			System.out.println("======================");
+			return batom;
 		} else {
 			System.out.println("Índice inválido");
 			return null;
@@ -155,7 +164,16 @@ public class EstoqueMaquiagem {
 
 	public MascaraCilios consultarMascaraCilios(int index) {
 		if (index >= 0 && index < mascarasCilios.size()) {
-			return mascarasCilios.get(index);
+			MascaraCilios mascaraCilios = mascarasCilios.get(index);
+			System.out.println("======================");
+			System.out.println("Produto: " + mascaraCilios.getNome());
+			System.out.println("Marca: " + mascaraCilios.getMarca());
+			System.out.println("Preço: " + mascaraCilios.getPreco());
+			System.out.println("Cor: " + mascaraCilios.getCor());
+			System.out.println("Tipo da Máscara de Cílios: " + mascaraCilios.getTipoMascaraCilios());
+			System.out.println("Categoria: Maquiagem");
+			System.out.println("======================");
+			return mascaraCilios;
 		} else {
 			System.out.println("Índice inválido");
 			return null;
@@ -164,7 +182,14 @@ public class EstoqueMaquiagem {
 
 	public PaletaSombras consultarPaletaSombras(int index) {
 		if (index >= 0 && index < paletasSombras.size()) {
-			return paletasSombras.get(index);
+			PaletaSombras paletaSombras = paletasSombras.get(index);
+			System.out.println("======================");
+			System.out.println("Produto: " + paletaSombras.getNome());
+			System.out.println("Marca: " + paletaSombras.getMarca());
+			System.out.println("Preço: " + paletaSombras.getPreco());
+			System.out.println("Cor: " + paletaSombras.getCor());
+			System.out.println("Número de cores: " + paletaSombras.getNumeroCores());
+			return paletaSombras;
 		} else {
 			System.out.println("Índice inválido");
 			return null;
@@ -172,8 +197,15 @@ public class EstoqueMaquiagem {
 	}
 
 	public Pincel consultarPincel(int index) {
-		if (index >= 0 && index < pincels.size()) {
-			return pincels.get(index);
+		if (index >= 0 && index < pinceis.size()) {
+			Pincel pincel = pinceis.get(index);
+			System.out.println("======================");
+			System.out.println("Produto: " + pincel.getNome());
+			System.out.println("Marca: " + pincel.getMarca());
+			System.out.println("Preço: " + pincel.getPreco());
+			System.out.println("Cor: " + pincel.getCor());
+			System.out.println("Tamanho do pincel: " + pincel.getTamanho());
+			return pincel;
 		} else {
 			System.out.println("Índice inválido");
 			return null;
@@ -187,6 +219,10 @@ public class EstoqueMaquiagem {
 	public void setBases(List<Base> bases) {
 		this.bases = bases;
 	}
+	
+	public int getQuantidadeBases() {
+	    return bases.size();
+	}
 
 	public List<Batom> getBatons() {
 		return batons;
@@ -194,6 +230,10 @@ public class EstoqueMaquiagem {
 
 	public void setBatons(List<Batom> batons) {
 		this.batons = batons;
+	}
+	
+	public int getQuantidadeBatons() {
+		return batons.size();
 	}
 
 	public List<MascaraCilios> getMascarasCilios() {
@@ -203,6 +243,10 @@ public class EstoqueMaquiagem {
 	public void setMascarasCilios(List<MascaraCilios> mascarasCilios) {
 		this.mascarasCilios = mascarasCilios;
 	}
+	
+	public int getQuantidadeMascaraCilios() {
+		return mascarasCilios.size();
+	}
 
 	public List<PaletaSombras> getPaletasSombras() {
 		return paletasSombras;
@@ -211,13 +255,21 @@ public class EstoqueMaquiagem {
 	public void setPaletasSombras(List<PaletaSombras> paletasSombras) {
 		this.paletasSombras = paletasSombras;
 	}
-
-	public List<Pincel> getPincels() {
-		return pincels;
+	
+	public int getQuantidadePaletaSombras() {
+		return paletasSombras.size();
 	}
 
-	public void setPincels(List<Pincel> pincels) {
-		this.pincels = pincels;
+	public List<Pincel> getPinceis() {
+		return pinceis;
+	}
+
+	public void setPincels(List<Pincel> pinceis) {
+		this.pinceis = pinceis;
+	}
+	
+	public int getQuantidadePincels() {
+		return pinceis.size();
 	}
 
 }
