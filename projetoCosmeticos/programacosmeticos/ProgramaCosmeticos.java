@@ -919,7 +919,43 @@ public class ProgramaCosmeticos {
 	}
 
 	private static void removerItens(EstoqueProdutoCapilar estoqueCapilar, Scanner scanner) {
-		// TODO Auto-generated method stub
+		boolean continuarRemovendo = true;
+		
+		System.out.println("Qual tipo de produto capilar deseja remover?");
+		System.out.println("1. Condicionador");
+		System.out.println("2. Máscara de Hidatração");
+		System.out.println("3. Shampoo");
+		System.out.println("4. Voltar ao menu principal");
+		
+		int opcao = scanner.nextInt();
+		scanner.nextLine();
+		
+		switch (opcao) {
+		case 1:
+			System.out.println("Informe o índice do condicionador a ser removido:");
+			int indiceCondicionador = scanner.nextInt();
+			estoqueCapilar.removerCondicionador(indiceCondicionador);
+			System.out.println("Condicionador removido com sucesso.");
+			break;
+		case 2:
+			System.out.println("Informe o índice da máscara de hidatração a ser removida:");
+			int indiceMascaraHidatracao = scanner.nextInt();
+			estoqueCapilar.removerMascaraHidatracao(indiceMascaraHidatracao);
+			System.out.println("Máscara de hidatração removida com sucesso.");
+			break;
+		case 3:
+			System.out.println("Informe o índice do shampoo a ser removido:");
+			int indiceShampoo = scanner.nextInt();
+			estoqueCapilar.removerShampoo(indiceShampoo);
+			System.out.println("Shampoo removido com sucesso.");
+			break;
+		case 4:
+			continuarRemovendo = false;
+			exibirMenu();
+			break;
+		default:
+			System.out.println("Opção inválida");
+		}
 	}
 
 	private static void visualizarEstoqueMaquiagem(ChecarEstoqueMaquiagem checarEstoqueMaquiagem) {
@@ -1035,14 +1071,82 @@ public class ProgramaCosmeticos {
 				exibirMenu();
 				break;
 			default:	
-				System.out.println("Tipo de produto inválido!");
+				System.out.println("Tipo de maquiagem inválido!");
 			}
 		}
 	}
 
 	private static void aplicarProdutoEDesconto(EstoqueProdutoCapilar estoqueCapilar,
 			ChecarEstoqueProdutoCapilar checarEstoqueProdutoCapilar, Scanner scanner) {
-		// TODO Auto-generated method stub
+		checarEstoqueProdutoCapilar.visualizarEstoque();
+		boolean continuarAplicandoProdutoDesconto = true;
+		
+		while (continuarAplicandoProdutoDesconto) {
+			System.out.println("Digite o tipo de produto capilar");
+			System.out.println("1. Condicionador");
+			System.out.println("2. Máscara de Hidatração");
+			System.out.println("3. Shampoo");
+			System.out.println("4. Voltar ao menu principal");
+			
+			int escolhaTipo = scanner.nextInt();
+			
+			switch (escolhaTipo) {
+			case 1:
+				System.out.print("Escolha o condicionador pelo índice: ");
+				int escolhaCondicionador = scanner.nextInt();
+				
+				if (escolhaCondicionador >= 0 && escolhaCondicionador < checarEstoqueProdutoCapilar.getNumeroCondicionador()) {
+					Condicionador condicionadorEscolhido = checarEstoqueProdutoCapilar.getNumeroCondicionadorPorIndice(escolhaCondicionador);
+					
+					System.out.print("Digite o valor do desconto para o condicionador: " + condicionadorEscolhido.getNome() + ": ");
+					double descontoCondicionador = scanner.nextDouble();
+					
+					condicionadorEscolhido.calcularDesconto(descontoCondicionador);
+					condicionadorEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido!");
+				}
+				break;
+			case 2:
+				System.out.print("Escolha a máscara de hidatração pelo índice: ");
+				int escolhaMascaraHidatracao = scanner.nextInt();
+				
+				if (escolhaMascaraHidatracao >= 0 && escolhaMascaraHidatracao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
+					MascaraHidratacao mascaraHidratacaoEscolhido = checarEstoqueProdutoCapilar.getNumeroMascaraHidatracaoPorIndice(escolhaMascaraHidatracao);
+					
+					System.out.print("Digite o valor do desconto para o condicionador: " + mascaraHidratacaoEscolhido.getNome() + ": ");
+					double descontoMascaraHidatracao = scanner.nextDouble();
+					
+					mascaraHidratacaoEscolhido.calcularDesconto(descontoMascaraHidatracao);
+					mascaraHidratacaoEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido!");
+				}
+				break;
+			case 3:
+				System.out.print("Escolha o shampoo pelo índice: ");
+				int escolhaShampoo = scanner.nextInt();
+				
+				if (escolhaShampoo >= 0 && escolhaShampoo < checarEstoqueProdutoCapilar.getNumeroShampoo()) {
+					Shampoo shampooEscolhido = checarEstoqueProdutoCapilar.getNumeroShampooPorIndice(escolhaShampoo);
+					
+					System.out.print("Digite o valor do desconto para o shampoo: " + shampooEscolhido.getNome() + ": ");
+					double descontoShampoo = scanner.nextDouble();
+					
+					shampooEscolhido.calcularDesconto(descontoShampoo);
+					shampooEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido!");
+				}
+				break;
+			case 4:
+				continuarAplicandoProdutoDesconto = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Tipo de produto capilar inválido!");
+			}
+		}
 	}
 
 }
