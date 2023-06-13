@@ -10,7 +10,9 @@ public abstract class Maquiagem extends Cosmetico {
 		this.cor = cor;
 	}
 
-
+	public Maquiagem() {
+		
+	}
 
 	public abstract void calcularDesconto(double percentualDesconto);
 	public abstract void aplicar();

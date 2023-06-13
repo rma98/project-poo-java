@@ -11,6 +11,10 @@ public abstract class ProdutoCapilar extends Cosmetico {
 		this.tipoCabelo = tipoCabelo;
 		this.tipo = tipo;
 	}
+	
+	public ProdutoCapilar() {
+		
+	}
 
 	public abstract void calcularDesconto(double percentualDesconto);
 	public abstract void aplicar();

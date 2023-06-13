@@ -6,6 +6,10 @@ public class MascaraHidratacao extends ProdutoCapilar {
 		super(nome, marca, preco, tipoCabelo, tipo);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public MascaraHidratacao() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

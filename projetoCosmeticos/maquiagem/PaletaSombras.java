@@ -8,7 +8,9 @@ public class PaletaSombras extends Maquiagem {
 		this.numeroCores = numeroCores;
 	}
 
-	
+	public PaletaSombras() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

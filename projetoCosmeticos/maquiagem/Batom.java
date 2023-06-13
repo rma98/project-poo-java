@@ -8,7 +8,9 @@ public class Batom extends Maquiagem {
 		this.tipoBatom = tipoBatom;
 	}
 
-	
+	public Batom() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

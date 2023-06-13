@@ -12,7 +12,9 @@ public abstract class Cosmetico {
 		this.preco = preco;
 	}
 	
-	
+	public Cosmetico() {
+		
+	}
 
 	public String getNome() {
 		return nome;

@@ -8,7 +8,9 @@ public class MascaraCilios extends Maquiagem {
 		this.tipoMascaraCilios = tipoMascaraCilios;
 	}
 
-	
+	public MascaraCilios() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

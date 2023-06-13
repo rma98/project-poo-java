@@ -8,7 +8,9 @@ public class Pincel extends Maquiagem {
 		this.tamanho = tamanho;
 	}
 
-	
+	public Pincel() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

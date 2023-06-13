@@ -6,6 +6,10 @@ public class Shampoo extends ProdutoCapilar {
 		super(nome, marca, preco, tipoCabelo, tipo);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Shampoo() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {

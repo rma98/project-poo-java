@@ -8,7 +8,9 @@ public class Base extends Maquiagem {
 		this.tipoBase = tipoBase;
 	}
 	
-	
+	public Base() {
+		
+	}
 
 	@Override
 	public void calcularDesconto(double percentualDesconto) {
