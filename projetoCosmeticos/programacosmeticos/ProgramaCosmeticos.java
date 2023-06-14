@@ -108,7 +108,7 @@ public class ProgramaCosmeticos {
 						removerItens(estoquePerfumaria, scanner);
 						break;
 					case 5:
-						visualizarEstoqueMaquiagem(checarEstoquePerfumaria);
+						visualizarEstoquePerfumaria(checarEstoquePerfumaria);
 						break;
 					case 6:
 						aplicarProdutoEDesconto(estoquePerfumaria, checarEstoquePerfumaria, scanner);
@@ -473,7 +473,7 @@ public class ProgramaCosmeticos {
 		while (continuarAdicionando) {
 			System.out.println("Selecione o tipo de item que deseja adicionar:");
 			System.out.println("1. Condicionador");
-			System.out.println("2. Máscara de Hidatração");
+			System.out.println("2. Máscara de Hidratação");
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
@@ -509,31 +509,31 @@ public class ProgramaCosmeticos {
 				}
 				break;
 			case 2:
-				System.out.println("Informe o nome da máscara de hidatração: ");
-				String nomeMascaraHidatracao = scanner.nextLine();
+				System.out.println("Informe o nome da máscara de hidratação: ");
+				String nomeMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe a marca: ");
-				String marcaMascaraHidatracao = scanner.nextLine();
+				String marcaMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe o preço: ");
-				double precoMascaraHidatracao = scanner.nextDouble();
+				double precoMascaraHidratacao = scanner.nextDouble();
 				scanner.nextLine();
 
 				System.out.println("Informe o tipo de cabelo: ");
-				String tipoCabeloMascaraHidatracao = scanner.nextLine();
+				String tipoCabeloMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe o tipo: ");
-				String tipoMascaraHidatracao = scanner.nextLine();
+				String tipoMascaraHidratacao = scanner.nextLine();
 
-				boolean mascaraHidatracaoExistente = estoqueCapilar.getMascaraHidratacaos().stream().anyMatch(b -> b.getNome().equalsIgnoreCase(nomeMascaraHidatracao));
+				boolean mascaraHidratacaoExistente = estoqueCapilar.getMascaraHidratacaos().stream().anyMatch(b -> b.getNome().equalsIgnoreCase(nomeMascaraHidratacao));
 
-				if (mascaraHidatracaoExistente) {
-					System.out.println("A máscara de hidatração já está presente no estoque.");
+				if (mascaraHidratacaoExistente) {
+					System.out.println("A máscara de hidratação já está presente no estoque.");
 				} else {
-					MascaraHidratacao mascaraHidratacao = new MascaraHidratacao(nomeMascaraHidatracao, marcaMascaraHidatracao, precoMascaraHidatracao, tipoCabeloMascaraHidatracao, tipoMascaraHidatracao);
+					MascaraHidratacao mascaraHidratacao = new MascaraHidratacao(nomeMascaraHidratacao, marcaMascaraHidratacao, precoMascaraHidratacao, tipoCabeloMascaraHidratacao, tipoMascaraHidratacao);
 					estoqueCapilar.adicionarMascaraHidatracao(mascaraHidratacao);
 
-					System.out.println("Máscara de hidatração adicionado ao estoque.");
+					System.out.println("Máscara de hidratação adicionado ao estoque.");
 				}
 				break;
 			case 3:
@@ -747,13 +747,145 @@ public class ProgramaCosmeticos {
 		}
 	}
 
+	private static void atualizarItem(EstoquePerfumaria estoquePerfumaria, Scanner scanner) {
+		boolean continuarAtualizando = true;
+
+		while (continuarAtualizando) {
+			System.out.println("Digite o tipo de perfumarias:");
+			System.out.println("1. Desodoranter");
+			System.out.println("2. Hidratação corporal");
+			System.out.println("3. Óleo corporal");
+			System.out.println("4. Perfume");
+			System.out.println("5. Voltar ao menu principal");
+
+			int tipoDesodorante = scanner.nextInt();
+			scanner.nextLine();
+
+			switch (tipoDesodorante) {
+			case 1:
+				System.out.println("Digite o índice do desodorante a ser atualizado: ");
+				int indiceDesodorante = scanner.nextInt();
+				scanner.nextLine();
+				if (indiceDesodorante < 0 || indiceDesodorante > estoquePerfumaria.getDesodorantes().size()) {
+					System.out.println("Índice inválido");
+					return;
+				}
+				System.out.println("Informe o novo nome do desodorante: ");
+				String novoNomeDesodorante = scanner.nextLine();
+
+				System.out.println("Informe a nova marca: ");
+				String novaMarcaDesodorante = scanner.nextLine();
+
+				System.out.println("Informe o novo preço: ");
+				double novoPrecoDesodorante = scanner.nextDouble();
+				scanner.nextLine();
+
+				System.out.println("Informe a nova fragrância: ");
+				String novaFragranciaDesodorante = scanner.nextLine();
+
+				System.out.println("Informe o novo tipo: ");
+				String novoTipoDesodorante = scanner.nextLine();
+
+				Desodorante desodoranteAtualizado = new Desodorante(novoNomeDesodorante, novaMarcaDesodorante, novoPrecoDesodorante, novaFragranciaDesodorante, novoTipoDesodorante);
+				estoquePerfumaria.atualizarDesodorante(tipoDesodorante, desodoranteAtualizado);
+				System.out.println("Desodorante atualizado com sucesso!");
+				break;
+			case 2:
+				System.out.println("Digite o índice da hidratação corporal a ser atualizado: ");
+				int indiceHidratacaoCorporal = scanner.nextInt();
+				scanner.nextLine();
+				if (indiceHidratacaoCorporal < 0 || indiceHidratacaoCorporal > estoquePerfumaria.getHidratacaoCorporais().size()) {
+					System.out.println("Índice inváldio");
+					return;
+				}
+				System.out.println("Informe o novo nome da hidratação corporal: ");
+				String novoNomeHidrataçaoCorporal = scanner.nextLine();
+
+				System.out.println("Informe a nova marca: ");
+				String novaMarcaHidrataçaoCorporal = scanner.nextLine();
+
+				System.out.println("Informe o novo preço: ");
+				double novoPrecoHidrataçaoCorporal = scanner.nextDouble();
+				scanner.nextLine();
+
+				System.out.println("Informe a nova fragrância: ");
+				String novaFragranciaHidrataçaoCorporal = scanner.nextLine();
+
+				System.out.println("Informe o novo tipo de pele: ");
+				String novoTipoPele = scanner.nextLine();
+
+				HidratacaoCorporal hidratacaoCorporalAtualizado = new HidratacaoCorporal(novoNomeHidrataçaoCorporal, novaMarcaHidrataçaoCorporal, novoPrecoHidrataçaoCorporal, novaFragranciaHidrataçaoCorporal, novoTipoPele);
+				estoquePerfumaria.atualizarHidratacaoCorporal(indiceHidratacaoCorporal, hidratacaoCorporalAtualizado);
+				System.out.println("Hidratação corporal atualizado com sucesso!");
+				break;
+			case 3:
+				System.out.println("Digite o índice do óleo corporal a ser atualizado: ");
+				int indiceOleoCorporal = scanner.nextInt();
+				scanner.nextLine();
+				if (indiceOleoCorporal < 0 || indiceOleoCorporal > estoquePerfumaria.getOleoCorporais().size()) {
+					System.out.println("Índice inválido");
+					return;
+				}
+				System.out.println("Informe o novo nome do óleo corporal: ");
+				String novoNomeOleoCorporal = scanner.nextLine();
+
+				System.out.println("Informe a nova marca: ");
+				String novaMarcaOleoCorporal = scanner.nextLine();
+
+				System.out.println("Informe o novo preço: ");
+				double novoPrecoOleoCorporal = scanner.nextDouble();
+				scanner.nextLine();
+
+				System.out.println("Informe a nova fragrância: ");
+				String novaFragranciaOleoCorporal = scanner.nextLine();
+
+				OleoCorporal oleoCorporalAtualizado = new OleoCorporal(novoNomeOleoCorporal, novaMarcaOleoCorporal, novoPrecoOleoCorporal, novaFragranciaOleoCorporal);
+				estoquePerfumaria.atualizarOleoCorporal(indiceOleoCorporal, oleoCorporalAtualizado);
+				System.out.println("Óleo corporal atualizado com sucesso!");
+				break;
+			case 4:
+				System.out.println("Digite o índice do perfume a ser atualizado: ");
+				int indicePerfume = scanner.nextInt();
+				scanner.nextLine();
+				if (indicePerfume < 0 || indicePerfume > estoquePerfumaria.getPerfumes().size()) {
+					System.out.println("Índice inválido");
+					return;
+				}
+				System.out.println("Informe o novo nome do perfume: ");
+				String nomeperfume = scanner.nextLine();
+
+				System.out.println("Informe a nova marca: ");
+				String marcaperfume = scanner.nextLine();
+
+				System.out.println("Informe o novo preço: ");
+				double precoperfume = scanner.nextDouble();
+				scanner.nextLine();
+
+				System.out.println("Informe a nova fragrância: ");
+				String fragranciaperfume = scanner.nextLine();
+
+				Perfume perfumeAtualizado = new Perfume(nomeperfume, marcaperfume, precoperfume, fragranciaperfume);
+				estoquePerfumaria.atualizarPerfume(indicePerfume, perfumeAtualizado);
+				System.out.println("Perfume atualizado com sucesso!");
+				break;
+			case 5:
+				continuarAtualizando = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Tipo de perfumaria inválido!");
+				break;
+			}
+		}
+	}
+
 	private static void atualizarItem(EstoqueProdutoCapilar estoqueCapilar, Scanner scanner) {
 		boolean continuarAtualizando = false;
 
 		while (continuarAtualizando) {
 			System.out.println("Digite o tipo de prdotos capilares:");
 			System.out.println("1. Condicionador");
-			System.out.println("2. Máscara de Hidatração");
+			System.out.println("2. Máscara de Hidratação");
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
@@ -790,32 +922,32 @@ public class ProgramaCosmeticos {
 				System.out.println("Condicionador atualizado com sucesso!");
 				break;
 			case 2:
-				System.out.println("Digite o índice da máscara de hidatração a ser atualizado: ");
-				int indiceMascaraHidatracao = scanner.nextInt();
+				System.out.println("Digite o índice da máscara de hidratação a ser atualizado: ");
+				int indiceMascaraHidratacao = scanner.nextInt();
 				scanner.nextLine();
-				if (indiceMascaraHidatracao < 0 || indiceMascaraHidatracao > estoqueCapilar.getMascaraHidratacaos().size()) {
+				if (indiceMascaraHidratacao < 0 || indiceMascaraHidratacao > estoqueCapilar.getMascaraHidratacaos().size()) {
 					System.out.println("Índice inválido!");
 					return;
 				}
-				System.out.println("Informe o novo nome da máscara de hidatração: ");
-				String novoNomeMascaraHidatracao = scanner.nextLine();
+				System.out.println("Informe o novo nome da máscara de hidratação: ");
+				String novoNomeMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe a nova marca: ");
-				String novaMarcaMascaraHidatracao = scanner.nextLine();
+				String novaMarcaMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe o novo preço: ");
-				double novoPrecoMascaraHidatracao = scanner.nextDouble();
+				double novoPrecoMascaraHidratacao = scanner.nextDouble();
 				scanner.nextLine();
 
 				System.out.println("Informe o novo tipo de cabelo: ");
-				String novoTipoCabeloMascaraHidatracao = scanner.nextLine();
+				String novoTipoCabeloMascaraHidratacao = scanner.nextLine();
 
 				System.out.println("Informe o novo tipo: ");
-				String novoTipoMascaraHidatracao = scanner.nextLine();
+				String novoTipoMascaraHidratacao = scanner.nextLine();
 
-				MascaraHidratacao mascaraHidratacaoAtualizado = new MascaraHidratacao(novoNomeMascaraHidatracao, novaMarcaMascaraHidatracao, novoPrecoMascaraHidatracao, novoTipoCabeloMascaraHidatracao, novoTipoMascaraHidatracao);
-				estoqueCapilar.atualizarMascaraHidatracao(indiceMascaraHidatracao, mascaraHidratacaoAtualizado);
-				System.out.println("Máscara de hidatração atualizado com sucesso!");
+				MascaraHidratacao mascaraHidratacaoAtualizado = new MascaraHidratacao(novoNomeMascaraHidratacao, novaMarcaMascaraHidratacao, novoPrecoMascaraHidratacao, novoTipoCabeloMascaraHidratacao, novoTipoMascaraHidratacao);
+				estoqueCapilar.atualizarMascaraHidatracao(indiceMascaraHidratacao, mascaraHidratacaoAtualizado);
+				System.out.println("Máscara de hidratação atualizado com sucesso!");
 				break;
 			case 3:
 				System.out.println("Digite o índice do shampoo a ser atualizado: ");
@@ -952,6 +1084,84 @@ public class ProgramaCosmeticos {
 			}
 		}
 	}
+	
+	private static void visualizarItens(EstoquePerfumaria estoquePerfumaria, Scanner scanner) {
+		boolean continuarConsultando = true;
+		
+		while (continuarConsultando) {
+			System.out.println("Escolha o tipo de item para consultar:");
+			System.out.println("1. Desodorante");
+			System.out.println("2. Hidratação corporal");
+			System.out.println("3. Óleo corporal");
+			System.out.println("4. Perfume");
+			System.out.println("5. Voltar ao menu principal");
+			
+			int opcao = scanner.nextInt();
+			scanner.nextLine();
+			
+			switch (opcao) {
+			case 1:
+				int quantidadeDesodorante = estoquePerfumaria.getQuantidadeDesodorante();
+				System.out.println("Quantidade de desodorantes: " + quantidadeDesodorante);
+				
+				System.out.println("Informe o índice:");
+				int indexDesodorante = scanner.nextInt();
+				scanner.nextLine();
+				if (indexDesodorante >= 0 && indexDesodorante < estoquePerfumaria.getDesodorantes().size()) {
+					estoquePerfumaria.consultarDesodorante(indexDesodorante);
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 2:
+				int quantidadeHidratacaoCorporal = estoquePerfumaria.getQuantidadeHidratacaoCorporal();
+				System.out.println("Quantidade de hidratações corporais: " + quantidadeHidratacaoCorporal);
+				
+				System.out.println("Informe o índice:");
+				int indexHidratacaoCorporal = scanner.nextInt();
+				scanner.nextLine();
+				if (indexHidratacaoCorporal >= 0 && indexHidratacaoCorporal < estoquePerfumaria.getHidratacaoCorporais().size()) {
+					estoquePerfumaria.consultarHidratacaoCorporal(indexHidratacaoCorporal);
+				} else {
+					System.out.println("Índicie inválido");
+				}
+				break;
+			case 3:
+				int quantidadeOleoCorporal = estoquePerfumaria.getQuantidadeOleoCorporal();
+				System.out.println("Quantidade de óleos corporais: " + quantidadeOleoCorporal);
+				
+				System.out.println("Informe o índice:");
+				int indexOleoCorporal = scanner.nextInt();
+				scanner.nextLine();
+				if (indexOleoCorporal >= 0 && indexOleoCorporal < estoquePerfumaria.getOleoCorporais().size()) {
+					estoquePerfumaria.consultarOleoCorporal(indexOleoCorporal);
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 4:
+				int quantidadePerfume = estoquePerfumaria.getQuantidadePerfume();
+				System.out.println("Quantidade de perfumes: " + quantidadePerfume);
+				
+				System.out.println("Informe o índice:");
+				int indexPerfume = scanner.nextInt();
+				scanner.nextLine();
+				if (indexPerfume >= 0 && indexPerfume < estoquePerfumaria.getPerfumes().size()) {
+					estoquePerfumaria.consultarPerfume(indexPerfume);
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 5:
+				continuarConsultando = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
+			}
+		}
+	}
 
 	private static void visualizarItens(EstoqueProdutoCapilar estoqueCapilar, Scanner scanner) {
 		boolean continuarConsultando = true;
@@ -959,7 +1169,7 @@ public class ProgramaCosmeticos {
 		while (continuarConsultando) {
 			System.out.println("Escolha o tipo de item para consultar:");
 			System.out.println("1. Condicionador");
-			System.out.println("2. Máscara de Hidatração");
+			System.out.println("2. Máscara de Hidratação");
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
@@ -981,14 +1191,14 @@ public class ProgramaCosmeticos {
 				}
 				break;
 			case 2:
-				int quantidadeMascaraHidatracao = scanner.nextInt();
-				System.out.println("Quantidade de máscara de hidatração: " + quantidadeMascaraHidatracao);
+				int quantidadeMascaraHidratacao = scanner.nextInt();
+				System.out.println("Quantidade de máscara de hidratação: " + quantidadeMascaraHidratacao);
 
 				System.out.print("Informe o índice:");
-				int indexMascaraHidatracao = scanner.nextInt();
+				int indexMascaraHidratacao = scanner.nextInt();
 				scanner.nextLine();
-				if (indexMascaraHidatracao >= 0 && indexMascaraHidatracao < estoqueCapilar.getMascaraHidratacaos().size()) {
-					estoqueCapilar.consultarMascaHidatracao(indexMascaraHidatracao);
+				if (indexMascaraHidratacao >= 0 && indexMascaraHidratacao < estoqueCapilar.getMascaraHidratacaos().size()) {
+					estoqueCapilar.consultarMascaHidatracao(indexMascaraHidratacao);
 				} else {
 					System.out.println("Índice inválido");
 				}
@@ -1069,6 +1279,57 @@ public class ProgramaCosmeticos {
 				break;
 			default:
 				System.out.println("Opção inválida");
+				break;
+			}
+		}
+	}
+	
+	private static void removerItens(EstoquePerfumaria estoquePerfumaria, Scanner scanner) {
+		boolean continuarRemovendo = true;
+		
+		while (continuarRemovendo) {
+			System.out.println("Qual tipo de produto capilar deseja remover?");
+			System.out.println("1. Desodorante");
+			System.out.println("2. Hidratação corporal");
+			System.out.println("3. Óleo corporal");
+			System.out.println("4. Perfume");
+			System.out.println("5. Voltar ao menu principal");
+			
+			int opcao = scanner.nextInt();
+			scanner.nextLine();
+			
+			switch (opcao) {
+			case 1:
+				System.out.println("Informe o índice do desodorante a ser removido:");
+				int indiceDesodorante = scanner.nextInt();
+				estoquePerfumaria.removerDesodorante(indiceDesodorante);
+				System.out.println("Desodorante removido com sucesso.");
+				break;
+			case 2:
+				System.out.println("Informe o índice da hidratação corporal a ser removido:");
+				int indiceHidratacaoCorporal = scanner.nextInt();
+				estoquePerfumaria.removerHidratacaoCorporal(indiceHidratacaoCorporal);
+				System.out.println("Hidratação corporal removido com sucesso.");
+				break;
+			case 3:
+				System.out.println("Informe o índice do óleo corporal a ser removido:");
+				int indiceOleoCorporal = scanner.nextInt();
+				estoquePerfumaria.removerOleoCorporal(indiceOleoCorporal);
+				System.out.println("Óleo corporal removido com sucesso.");
+				break;
+			case 4:
+				System.out.println("Informe o índice do perfume a ser removido:");
+				int indicePerfume = scanner.nextInt();
+				estoquePerfumaria.removerPerfume(indicePerfume);
+				System.out.println("Perfume removido com sucesso.");
+				break;
+			case 5:
+				continuarRemovendo = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
 			}
 		}
 	}
@@ -1076,45 +1337,54 @@ public class ProgramaCosmeticos {
 	private static void removerItens(EstoqueProdutoCapilar estoqueCapilar, Scanner scanner) {
 		boolean continuarRemovendo = true;
 
-		System.out.println("Qual tipo de produto capilar deseja remover?");
-		System.out.println("1. Condicionador");
-		System.out.println("2. Máscara de Hidatração");
-		System.out.println("3. Shampoo");
-		System.out.println("4. Voltar ao menu principal");
+		while (continuarRemovendo) {
+			System.out.println("Qual tipo de produto capilar deseja remover?");
+			System.out.println("1. Condicionador");
+			System.out.println("2. Máscara de Hidratação");
+			System.out.println("3. Shampoo");
+			System.out.println("4. Voltar ao menu principal");
 
-		int opcao = scanner.nextInt();
-		scanner.nextLine();
+			int opcao = scanner.nextInt();
+			scanner.nextLine();
 
-		switch (opcao) {
-		case 1:
-			System.out.println("Informe o índice do condicionador a ser removido:");
-			int indiceCondicionador = scanner.nextInt();
-			estoqueCapilar.removerCondicionador(indiceCondicionador);
-			System.out.println("Condicionador removido com sucesso.");
-			break;
-		case 2:
-			System.out.println("Informe o índice da máscara de hidatração a ser removida:");
-			int indiceMascaraHidatracao = scanner.nextInt();
-			estoqueCapilar.removerMascaraHidatracao(indiceMascaraHidatracao);
-			System.out.println("Máscara de hidatração removida com sucesso.");
-			break;
-		case 3:
-			System.out.println("Informe o índice do shampoo a ser removido:");
-			int indiceShampoo = scanner.nextInt();
-			estoqueCapilar.removerShampoo(indiceShampoo);
-			System.out.println("Shampoo removido com sucesso.");
-			break;
-		case 4:
-			continuarRemovendo = false;
-			exibirMenu();
-			break;
-		default:
-			System.out.println("Opção inválida");
+			switch (opcao) {
+			case 1:
+				System.out.println("Informe o índice do condicionador a ser removido:");
+				int indiceCondicionador = scanner.nextInt();
+				estoqueCapilar.removerCondicionador(indiceCondicionador);
+				System.out.println("Condicionador removido com sucesso.");
+				break;
+			case 2:
+				System.out.println("Informe o índice da máscara de hidratação a ser removida:");
+				int indiceMascaraHidratacao = scanner.nextInt();
+				estoqueCapilar.removerMascaraHidatracao(indiceMascaraHidratacao);
+				System.out.println("Máscara de hidatração removida com sucesso.");
+				break;
+			case 3:
+				System.out.println("Informe o índice do shampoo a ser removido:");
+				int indiceShampoo = scanner.nextInt();
+				estoqueCapilar.removerShampoo(indiceShampoo);
+				System.out.println("Shampoo removido com sucesso.");
+				break;
+			case 4:
+				continuarRemovendo = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
+			}
 		}
 	}
 
 	private static void visualizarEstoqueMaquiagem(ChecarEstoqueMaquiagem checarEstoqueMaquiagem) {
 		checarEstoqueMaquiagem.visualizarEstoque();
+		exibirMenu();
+		System.out.print("Escolha uma opção: ");
+	}
+	
+	private static void visualizarEstoquePerfumaria(ChecarEstoquePerfumaria checarEstoquePerfumaria) {
+		checarEstoquePerfumaria.visualizarEstoque();
 		exibirMenu();
 		System.out.print("Escolha uma opção: ");
 	}
@@ -1144,7 +1414,6 @@ public class ProgramaCosmeticos {
 			case 1:
 				System.out.print("Escolha a base pelo índice: ");
 				int escolhaBase = scanner.nextInt();
-
 				if (escolhaBase >= 0 && escolhaBase < checarEstoqueMaquiagem.getNumeroBases()) {
 					Base baseEscolhida = checarEstoqueMaquiagem.getBasePorIndice(escolhaBase);
 
@@ -1160,7 +1429,6 @@ public class ProgramaCosmeticos {
 			case 2:	
 				System.out.print("Escolha o batom pelo índice: ");
 				int escolhaBatom = scanner.nextInt();
-
 				if (escolhaBatom >= 0 && escolhaBatom < checarEstoqueMaquiagem.getNumeroBatons()) {
 					Batom batomEscolhido = checarEstoqueMaquiagem.getBatomPorIndice(escolhaBatom);
 
@@ -1176,7 +1444,6 @@ public class ProgramaCosmeticos {
 			case 3:
 				System.out.print("Escolha a máscara de cílios pelo índice: ");
 				int escolhaMascaraCilios = scanner.nextInt();
-
 				if (escolhaMascaraCilios >= 0 && escolhaMascaraCilios < checarEstoqueMaquiagem.getNumeroMascarasCilios()) {
 					MascaraCilios mascaraCiliosEscolhido = checarEstoqueMaquiagem.getMascaraCiliosPorIndice(escolhaMascaraCilios);
 
@@ -1192,7 +1459,6 @@ public class ProgramaCosmeticos {
 			case 4:	
 				System.out.print("Escolha a paleta de sombras pelo índice: ");
 				int escolhaPaletaSombras = scanner.nextInt();
-
 				if (escolhaPaletaSombras >= 0 && escolhaPaletaSombras < checarEstoqueMaquiagem.getNumeroPaletasSombras()) {
 					PaletaSombras paletaSombrasEscolhido = checarEstoqueMaquiagem.getPaletaSombrasPorIndice(escolhaPaletaSombras);
 
@@ -1208,7 +1474,6 @@ public class ProgramaCosmeticos {
 			case 5:	
 				System.out.print("Escolha o pincel pelo índice: ");
 				int escolhaPincel = scanner.nextInt();
-
 				if (escolhaPincel >= 0 && escolhaPincel < checarEstoqueMaquiagem.getNumeroPinceis()) {
 					Pincel pincelEscolhido = checarEstoqueMaquiagem.getNumeroPincelPorIndice(escolhaPincel);
 
@@ -1227,6 +1492,94 @@ public class ProgramaCosmeticos {
 				break;
 			default:	
 				System.out.println("Tipo de maquiagem inválido!");
+				break;
+			}
+		}
+	}
+	
+	private static void aplicarProdutoEDesconto(EstoquePerfumaria estoquePerfumaria,
+			ChecarEstoquePerfumaria checarEstoquePerfumaria, Scanner scanner) {
+		checarEstoquePerfumaria.visualizarEstoque();
+		boolean continuarAplicandoProdutoDesconto = true;
+		
+		while (continuarAplicandoProdutoDesconto) {
+			System.out.println("Digite o tipo de perfumaria");
+			System.out.println("1. Desodorante");
+			System.out.println("2. Hidratação corporal");
+			System.out.println("3. Óleo corporal");
+			System.out.println("4. Perfume");
+			System.out.println("5. Voltar ao menu principal");
+			
+			int escolhaTipo = scanner.nextInt();
+			
+			switch (escolhaTipo) {
+			case 1:
+				System.out.print("Escolha o desodorante pelo índice: ");
+				int escolhaDesodorante = scanner.nextInt();
+				if (escolhaDesodorante >= 0 && escolhaDesodorante < checarEstoquePerfumaria.getNumeroDesodorante()) {
+					Desodorante desodoranteEscolhido = checarEstoquePerfumaria.getNumeroDesodorantePorIndice(escolhaDesodorante);
+					
+					System.out.println("Digite o valor do desconto para o desodorante: " + desodoranteEscolhido.getNome() + ": ");
+					double descontoDesodorante = scanner.nextDouble();
+					
+					desodoranteEscolhido.calcularDesconto(descontoDesodorante);
+					desodoranteEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 2:
+				System.out.print("Escolha a hidratação corporal pelo índice: ");
+				int escolhaHidratacaoCorporal = scanner.nextInt();
+				if (escolhaHidratacaoCorporal >= 0 && escolhaHidratacaoCorporal < checarEstoquePerfumaria.getNumeroHidratacaoCorporal()) {
+					HidratacaoCorporal HidratacaocorporalEscolhido = checarEstoquePerfumaria.getNumeroHidatracaoCorporalPorIndice(escolhaHidratacaoCorporal);
+					
+					System.out.println("Digite o valor do desconto para a hidratação corporal: " + HidratacaocorporalEscolhido.getNome() + ": ");
+					double descontoHidratacao = scanner.nextDouble();
+					
+					HidratacaocorporalEscolhido.calcularDesconto(descontoHidratacao);
+					HidratacaocorporalEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 3:
+				System.out.print("Escolha o óleo corporal pelo índice: ");
+				int escolhaOleoCorporal = scanner.nextInt();
+				if (escolhaOleoCorporal >= 0 && escolhaOleoCorporal < checarEstoquePerfumaria.getNumeroOleoCorporal()) {
+					OleoCorporal oleoCorporalEscolhido = checarEstoquePerfumaria.getNumeroOleoCorporalPorIndice(escolhaOleoCorporal);
+					
+					System.out.println("Digite o valor do desconto para o óleo corporal: " + oleoCorporalEscolhido.getNome() + ": ");
+					double descontoOleoCorporal = scanner.nextDouble();
+					
+					oleoCorporalEscolhido.calcularDesconto(descontoOleoCorporal);
+					oleoCorporalEscolhido.aplicar();
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 4:
+				System.out.print("Escolha o óleo corporal pelo índice: ");
+				int escolhaPerfume = scanner.nextInt();
+				if (escolhaPerfume >= 0 && escolhaPerfume < checarEstoquePerfumaria.getNumeroPerfume()) {
+					Perfume perfumeEscoliho = checarEstoquePerfumaria.getNumeroPerfumePorIndice(escolhaPerfume);
+					
+					System.out.println("Digite o valor do desconto para o perfume: " + perfumeEscoliho.getNome() + ": ");
+					double descontoPerfume = scanner.nextDouble();
+					
+					perfumeEscoliho.calcularDesconto(descontoPerfume);
+					perfumeEscoliho.aplicar();
+				} else {
+					System.out.println("Índice inválido");
+				}
+				break;
+			case 5:
+				continuarAplicandoProdutoDesconto = false;
+				exibirMenu();
+				break;
+			default:
+				System.out.println("Tipo de maquiagem inválido!");
+				break;
 			}
 		}
 	}
@@ -1239,7 +1592,7 @@ public class ProgramaCosmeticos {
 		while (continuarAplicandoProdutoDesconto) {
 			System.out.println("Digite o tipo de produto capilar");
 			System.out.println("1. Condicionador");
-			System.out.println("2. Máscara de Hidatração");
+			System.out.println("2. Máscara de Hidratação");
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
@@ -1249,7 +1602,6 @@ public class ProgramaCosmeticos {
 			case 1:
 				System.out.print("Escolha o condicionador pelo índice: ");
 				int escolhaCondicionador = scanner.nextInt();
-
 				if (escolhaCondicionador >= 0 && escolhaCondicionador < checarEstoqueProdutoCapilar.getNumeroCondicionador()) {
 					Condicionador condicionadorEscolhido = checarEstoqueProdutoCapilar.getNumeroCondicionadorPorIndice(escolhaCondicionador);
 
@@ -1263,16 +1615,15 @@ public class ProgramaCosmeticos {
 				}
 				break;
 			case 2:
-				System.out.print("Escolha a máscara de hidatração pelo índice: ");
-				int escolhaMascaraHidatracao = scanner.nextInt();
-
-				if (escolhaMascaraHidatracao >= 0 && escolhaMascaraHidatracao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
-					MascaraHidratacao mascaraHidratacaoEscolhido = checarEstoqueProdutoCapilar.getNumeroMascaraHidatracaoPorIndice(escolhaMascaraHidatracao);
+				System.out.print("Escolha a máscara de hidratação pelo índice: ");
+				int escolhaMascaraHidratacao = scanner.nextInt();
+				if (escolhaMascaraHidratacao >= 0 && escolhaMascaraHidratacao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
+					MascaraHidratacao mascaraHidratacaoEscolhido = checarEstoqueProdutoCapilar.getNumeroMascaraHidatracaoPorIndice(escolhaMascaraHidratacao);
 
 					System.out.print("Digite o valor do desconto para o condicionador: " + mascaraHidratacaoEscolhido.getNome() + ": ");
-					double descontoMascaraHidatracao = scanner.nextDouble();
+					double descontoMascaraHidratacao = scanner.nextDouble();
 
-					mascaraHidratacaoEscolhido.calcularDesconto(descontoMascaraHidatracao);
+					mascaraHidratacaoEscolhido.calcularDesconto(descontoMascaraHidratacao);
 					mascaraHidratacaoEscolhido.aplicar();
 				} else {
 					System.out.println("Índice inválido!");
@@ -1281,7 +1632,6 @@ public class ProgramaCosmeticos {
 			case 3:
 				System.out.print("Escolha o shampoo pelo índice: ");
 				int escolhaShampoo = scanner.nextInt();
-
 				if (escolhaShampoo >= 0 && escolhaShampoo < checarEstoqueProdutoCapilar.getNumeroShampoo()) {
 					Shampoo shampooEscolhido = checarEstoqueProdutoCapilar.getNumeroShampooPorIndice(escolhaShampoo);
 
@@ -1300,6 +1650,7 @@ public class ProgramaCosmeticos {
 				break;
 			default:
 				System.out.println("Tipo de produto capilar inválido!");
+				break;
 			}
 		}
 	}
