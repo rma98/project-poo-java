@@ -21,7 +21,7 @@ public class MascaraHidratacao extends ProdutoCapilar {
 	@Override
 	public void aplicar() {
 		System.out.println("======================");
-		System.out.println("Aplicando máscara de hidatração: " + getNome());
+		System.out.println("Aplicando máscara de hidratação: " + getNome());
 		System.out.println("Tipo de cabelo: " + getTipoCabelo());
 		System.out.println("======================");
 	}
