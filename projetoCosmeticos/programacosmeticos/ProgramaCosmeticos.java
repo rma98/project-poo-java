@@ -5,6 +5,7 @@ import java.util.Scanner;
 import maquiagem.Base;
 import maquiagem.Batom;
 import maquiagem.EstoqueMaquiagem;
+import maquiagem.Maquiagem;
 import maquiagem.MascaraCilios;
 import maquiagem.PaletaSombras;
 import maquiagem.Pincel;
@@ -13,11 +14,13 @@ import perfumaria.Desodorante;
 import perfumaria.EstoquePerfumaria;
 import perfumaria.HidratacaoCorporal;
 import perfumaria.OleoCorporal;
+import perfumaria.Perfumaria;
 import perfumaria.Perfume;
 import produtocapilar.ChecarEstoqueProdutoCapilar;
 import produtocapilar.Condicionador;
 import produtocapilar.EstoqueProdutoCapilar;
 import produtocapilar.MascaraHidratacao;
+import produtocapilar.ProdutoCapilar;
 import produtocapilar.Shampoo;
 import maquiagem.ChecarEstoqueMaquiagem;
 
@@ -38,7 +41,7 @@ public class ProgramaCosmeticos {
 
 		while (cosmeticos) {
 			boolean continuarMenu = true;
-			int tipoCosmetico;
+			String tipoCosmetico;
 
 			System.out.println("---------- Cosmésticos ----------");
 			System.out.println("1. Maquiagem");
@@ -46,37 +49,35 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Produtos Capilares");
 			System.out.println("4. Encerrar programa");
 			System.out.println("------------------------------");
-			tipoCosmetico = scanner.nextInt();
-			scanner.nextLine();
+			tipoCosmetico = scanner.nextLine();
 
 			switch (tipoCosmetico) {
-			case 1:
+			case "1":
 				exibirMenu();
 				System.out.print("Escolha uma opção: ");
 				while (continuarMenu) {
-					int opcao = scanner.nextInt();
-					scanner.nextLine();
+					String opcao = scanner.nextLine();
 
 					switch (opcao) {
-					case 1:
+					case "1":
 						adicionarItemEstoque(estoqueMaquiagem, scanner);
 						break;
-					case 2:
+					case "2":
 						atualizarItem(estoqueMaquiagem, scanner);
 						break;
-					case 3:
+					case "3":
 						visualizarItens(estoqueMaquiagem, scanner);
 						break;
-					case 4:
+					case "4":
 						removerItens(estoqueMaquiagem, scanner);
 						break;
-					case 5:
+					case "5":
 						visualizarEstoqueMaquiagem(checarEstoqueMaquiagem);
 						break;
-					case 6:
+					case "6":
 						aplicarProdutoEDesconto(estoqueMaquiagem, checarEstoqueMaquiagem, scanner);
 						break;
-					case 7:
+					case "7":
 						continuarMenu = false;
 						break;
 					default:
@@ -87,33 +88,32 @@ public class ProgramaCosmeticos {
 					}
 				}
 				break;
-			case 2:
+			case "2":
 				exibirMenu();
 				System.out.print("Escolha uma opção: ");
 				while (continuarMenu) {
-					int opcao = scanner.nextInt();
-					scanner.nextLine();
+					String opcao = scanner.nextLine();
 
 					switch (opcao) {
-					case 1:
+					case "1":
 						adicionarItemEstoque(estoquePerfumaria, scanner);
 						break;
-					case 2:
+					case "2":
 						atualizarItem(estoquePerfumaria, scanner);
 						break;
-					case 3:
+					case "3":
 						visualizarItens(estoquePerfumaria, scanner);
 						break;
-					case 4:
+					case "4":
 						removerItens(estoquePerfumaria, scanner);
 						break;
-					case 5:
+					case "5":
 						visualizarEstoquePerfumaria(checarEstoquePerfumaria);
 						break;
-					case 6:
+					case "6":
 						aplicarProdutoEDesconto(estoquePerfumaria, checarEstoquePerfumaria, scanner);
 						break;
-					case 7:
+					case "7":
 						continuarMenu = false;
 						exibirMenu();
 						break;
@@ -125,32 +125,31 @@ public class ProgramaCosmeticos {
 					}
 				}
 				break;
-			case 3:
+			case "3":
 				exibirMenu();
 				System.out.print("Escolha uma opção: ");
 				while (continuarMenu) {
-					int opcao = scanner.nextInt();
-					scanner.nextLine();
+					String opcao = scanner.nextLine();
 
 					switch (opcao) {
-					case 1:
+					case "1":
 						adicionarItemEstoque(estoqueCapilar, scanner);
 						break;
-					case 2:
+					case "2":
 						atualizarItem(estoqueCapilar, scanner);
 						break;
-					case 3:
+					case "3":
 						visualizarItens(estoqueCapilar, scanner);
 						break;
-					case 4:
+					case "4":
 						removerItens(estoqueCapilar, scanner);
 						break;
-					case 5:
+					case "5":
 						visualizarEstoqueProdutoCapilar(checarEstoqueProdutoCapilar);
 						break;
-					case 6:
+					case "6":
 						aplicarProdutoEDesconto(estoqueCapilar, checarEstoqueProdutoCapilar, scanner);
-					case 7:
+					case "7":
 						continuarMenu = false;
 						break;
 					default:
@@ -161,7 +160,7 @@ public class ProgramaCosmeticos {
 					}
 				}
 				break;
-			case 4:
+			case "4":
 				cosmeticos = false;
 				System.out.println("Encerrando programa...");
 				break;
@@ -196,11 +195,10 @@ public class ProgramaCosmeticos {
 			System.out.println("5. Pincel");
 			System.out.println("6. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine(); // Limpar o buffer do scanner
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o nome da base: ");
 				String nomeBase = scanner.nextLine();
 
@@ -221,13 +219,13 @@ public class ProgramaCosmeticos {
 				if (baseExistente) {
 					System.out.println("A base já está presente no estoque.");
 				} else {
-					Base base = new Base(nomeBase, marcaBase, precoBase, corBase, tipoBase);
+					Maquiagem base = new Base(nomeBase, marcaBase, precoBase, corBase, tipoBase);
 					estoqueMaquiagem.adicionarBase(base);
 					System.out.println("Base adicionada ao estoque.");
 				}
 				break;
 
-			case 2:
+			case "2":
 				System.out.println("Informe o nome do batom: ");
 				String nomeBatom = scanner.nextLine();
 
@@ -248,12 +246,12 @@ public class ProgramaCosmeticos {
 				if(batomExistente) {
 					System.out.println("O batom já está presente no estoque.");
 				} else {
-					Batom batom = new Batom(nomeBatom, marcaBatom, precoBatom, corBatom, tipoBatom);
+					Maquiagem batom = new Batom(nomeBatom, marcaBatom, precoBatom, corBatom, tipoBatom);
 					estoqueMaquiagem.adicionarBatom(batom);
 					System.out.println("Batom adicionado ao estoque.");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o nome da máscara de cílios: ");
 				String nomeMascaraCilios = scanner.nextLine();
 
@@ -274,12 +272,12 @@ public class ProgramaCosmeticos {
 				if (mascaraCiliosExistente) {
 					System.out.println("A máscara de cílios já está presente no estoque.");
 				} else {
-					MascaraCilios mascaraCilios = new MascaraCilios(nomeMascaraCilios, marcaMascaraCilios, precoMascaraCilios, corMascaraCilios, tipoMascaraCilios);
+					Maquiagem mascaraCilios = new MascaraCilios(nomeMascaraCilios, marcaMascaraCilios, precoMascaraCilios, corMascaraCilios, tipoMascaraCilios);
 					estoqueMaquiagem.adicionarMascaraCilios(mascaraCilios);
 					System.out.println("Máscara de cílios adicionado ao estoque.");
 				}
 				break;
-			case 4:
+			case "4":
 				System.out.println("Informe o nome da paleta de sombras: ");
 				String nomePaletaSombras = scanner.nextLine();
 
@@ -301,12 +299,12 @@ public class ProgramaCosmeticos {
 				if (paletaSombrasExistente) {
 					System.out.println("A paleta de sombras já está presente no estoque.");
 				} else {
-					PaletaSombras paletaSombras = new PaletaSombras(nomePaletaSombras, marcaPaletaSombras, precoPaletaSombras, corPaletaSombras, numeroCores);
+					Maquiagem paletaSombras = new PaletaSombras(nomePaletaSombras, marcaPaletaSombras, precoPaletaSombras, corPaletaSombras, numeroCores);
 					estoqueMaquiagem.adicionarPaletaSombras(paletaSombras);
 					System.out.println("Paleta de sombras adicionado ao estoque.");
 				}
 				break;
-			case 5:
+			case "5":
 				System.out.println("Informe o nome do pincel: ");
 				String nomePincel = scanner.nextLine();
 
@@ -332,7 +330,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Pincel adicionado ao estoque.");
 				}
 				break;
-			case 6:
+			case "6":
 				continuarAdicionando = false;
 				exibirMenu();
 				break;
@@ -354,11 +352,10 @@ public class ProgramaCosmeticos {
 			System.out.println("4. Perfume");
 			System.out.println("5. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine();
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o nome do desodorante: ");
 				String nomeDesodorante = scanner.nextLine();
 
@@ -379,12 +376,12 @@ public class ProgramaCosmeticos {
 				if (desodoranteExistente) {
 					System.out.println("O desodorante já está presente no estoque.");
 				} else {
-					Desodorante desodorante = new Desodorante(nomeDesodorante, marcaDesodorante, precoDesodorante, fragranciaDesodorante, tipoDesodorante);
+					Perfumaria desodorante = new Desodorante(nomeDesodorante, marcaDesodorante, precoDesodorante, fragranciaDesodorante, tipoDesodorante);
 					estoquePerfumaria.adicionarDesodorante(desodorante);
 					System.out.println("Desodorante adicionado ao estoque.");
 				}
 				break;
-			case 2:
+			case "2":
 				System.out.println("Informe o nome da hidratação corporal: ");
 				String nomeHidrataçaoCorporal = scanner.nextLine();
 
@@ -405,12 +402,12 @@ public class ProgramaCosmeticos {
 				if (hidratacaoCorporalExistente) {
 					System.out.println("A hidratação corporal já está presente no estoque.");
 				} else {
-					HidratacaoCorporal hidratacaoCorporal = new HidratacaoCorporal(nomeHidrataçaoCorporal, marcaHidrataçaoCorporal, precoHidrataçaoCorporal, fragranciaHidrataçaoCorporal, tipoPele);
+					Perfumaria hidratacaoCorporal = new HidratacaoCorporal(nomeHidrataçaoCorporal, marcaHidrataçaoCorporal, precoHidrataçaoCorporal, fragranciaHidrataçaoCorporal, tipoPele);
 					estoquePerfumaria.adicionarHidatracaoCorporal(hidratacaoCorporal);
 					System.out.println("Hidratação corporal adicionado ao estoque.");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o nome do óleo corporal: ");
 				String nomeOleoCorporal = scanner.nextLine();
 
@@ -428,12 +425,12 @@ public class ProgramaCosmeticos {
 				if (oleoCorporalExistene) {
 					System.out.println("O óleo corporal já está presente no estoque.");
 				} else {
-					OleoCorporal oeloCorporal = new OleoCorporal(nomeOleoCorporal, marcaOleoCorporal, precoOleoCorporal, fragranciaOleoCorporal);
+					Perfumaria oeloCorporal = new OleoCorporal(nomeOleoCorporal, marcaOleoCorporal, precoOleoCorporal, fragranciaOleoCorporal);
 					estoquePerfumaria.adicionarOleoCorporal(oeloCorporal);
 					System.out.println("Óleo corporal adicionado ao estoque.");
 				}
 				break;
-			case 4:	
+			case "4":	
 				System.out.println("Informe o nome do perfume: ");
 				String nomeperfume = scanner.nextLine();
 
@@ -451,12 +448,12 @@ public class ProgramaCosmeticos {
 				if (perfumeExistente) {
 					System.out.println("O perfume já está presente no estoque.");
 				} else {
-					Perfume perfume = new Perfume(nomeperfume, marcaperfume, precoperfume, fragranciaperfume);
+					Perfumaria perfume = new Perfume(nomeperfume, marcaperfume, precoperfume, fragranciaperfume);
 					estoquePerfumaria.adicionarPerfume(perfume);
 					System.out.println("Perfume adicionado ao estoque.");
 				}
 				break;
-			case 5:
+			case "5":
 				continuarAdicionando = false;
 				exibirMenu();
 				break;
@@ -477,11 +474,10 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine();
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o nome do condicionador: ");
 				String nomeCondicionador = scanner.nextLine();
 
@@ -502,13 +498,13 @@ public class ProgramaCosmeticos {
 				if (condicionadorExistente) {
 					System.out.println("O condicionador já está presente no estoque.");
 				} else {
-					Condicionador condicionador = new Condicionador(nomeCondicionador, marcaCondicionador, precoCondicionador, tipoCabeloCondicionador, tipoCondicionador);
+					ProdutoCapilar condicionador = new Condicionador(nomeCondicionador, marcaCondicionador, precoCondicionador, tipoCabeloCondicionador, tipoCondicionador);
 					estoqueCapilar.adicionarCondicionador(condicionador);
 
 					System.out.println("Condicionador adicionado ao estoque.");
 				}
 				break;
-			case 2:
+			case "2":
 				System.out.println("Informe o nome da máscara de hidratação: ");
 				String nomeMascaraHidratacao = scanner.nextLine();
 
@@ -530,13 +526,13 @@ public class ProgramaCosmeticos {
 				if (mascaraHidratacaoExistente) {
 					System.out.println("A máscara de hidratação já está presente no estoque.");
 				} else {
-					MascaraHidratacao mascaraHidratacao = new MascaraHidratacao(nomeMascaraHidratacao, marcaMascaraHidratacao, precoMascaraHidratacao, tipoCabeloMascaraHidratacao, tipoMascaraHidratacao);
+					ProdutoCapilar mascaraHidratacao = new MascaraHidratacao(nomeMascaraHidratacao, marcaMascaraHidratacao, precoMascaraHidratacao, tipoCabeloMascaraHidratacao, tipoMascaraHidratacao);
 					estoqueCapilar.adicionarMascaraHidatracao(mascaraHidratacao);
 
 					System.out.println("Máscara de hidratação adicionado ao estoque.");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o nome do shampoo: ");
 				String nomeShampoo = scanner.nextLine();
 
@@ -558,13 +554,13 @@ public class ProgramaCosmeticos {
 				if (shampooExistente) {
 					System.out.println("O shampoo já está presente no estoque.");
 				} else {
-					Shampoo shampoo = new Shampoo(nomeShampoo, marcaShampoo, precoShampoo, tipoCabeloShampoo, tipoShampoo);
+					ProdutoCapilar shampoo = new Shampoo(nomeShampoo, marcaShampoo, precoShampoo, tipoCabeloShampoo, tipoShampoo);
 					estoqueCapilar.adicionarShampoo(shampoo);
 
 					System.out.println("Shampoo adicionado ao estoque.");
 				}
 				break;
-			case 4:
+			case "4":
 				continuarAdicionando = false;
 				exibirMenu();
 				break;
@@ -587,11 +583,10 @@ public class ProgramaCosmeticos {
 			System.out.println("5. Pincel");
 			System.out.println("6. Voltar ao menu principal");
 
-			int tipoMaquiagem = scanner.nextInt();
-			scanner.nextLine();
+			String tipoMaquiagem = scanner.nextLine();
 
 			switch (tipoMaquiagem) {
-			case 1:
+			case "1":
 				System.out.println("Digite o índice da base a ser atualizado: ");
 				int indiceBase = scanner.nextInt();
 				scanner.nextLine();
@@ -615,11 +610,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Digite o novo tipo: ");
 				String novoTipoBase = scanner.nextLine();
 
-				Base baseAtualizado = new Base(novoNomeBase, novaMarcaBase, novoPrecoBase, novaCorBase, novoTipoBase);
+				Maquiagem baseAtualizado = new Base(novoNomeBase, novaMarcaBase, novoPrecoBase, novaCorBase, novoTipoBase);
 				estoqueMaquiagem.atualizarBase(indiceBase, baseAtualizado);
 				System.out.println("Base atualizado com sucesso!");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Digite o índice do batom a ser atualizado: ");
 				int indiceBatom = scanner.nextInt();
 				scanner.nextLine();
@@ -643,11 +638,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Digite o novo tipo: ");
 				String novoTipoBatom = scanner.nextLine();
 
-				Batom batomAtualizado = new Batom(novoNomeBatom, novaMarcaBatom, novoPrecoBatom, novacorBatom, novoTipoBatom);
+				Maquiagem batomAtualizado = new Batom(novoNomeBatom, novaMarcaBatom, novoPrecoBatom, novacorBatom, novoTipoBatom);
 				estoqueMaquiagem.atualizarBatom(indiceBatom, batomAtualizado);
 				System.out.println("Batom atualizado com sucesso!");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Digite o índice da máscara de cílios a ser atualizado: ");
 				int indiceMascaraCilios = scanner.nextInt();
 				scanner.nextLine();
@@ -672,12 +667,12 @@ public class ProgramaCosmeticos {
 				System.out.println("Digite o novo tipo: ");
 				String novoTipoMascaraCilios = scanner.nextLine();
 
-				MascaraCilios mascaraCilios = new MascaraCilios(novoNomeMascaraCilios, novaMarcaMascaraCilios, novoPrecoMascaraCilios, novaCorMascaraCilios, novoTipoMascaraCilios);
+				Maquiagem mascaraCilios = new MascaraCilios(novoNomeMascaraCilios, novaMarcaMascaraCilios, novoPrecoMascaraCilios, novaCorMascaraCilios, novoTipoMascaraCilios);
 				estoqueMaquiagem.atualizarMascaraCilios(indiceMascaraCilios, mascaraCilios);
 
 				System.out.println("Máscara de cílios atualizado com sucesso!");
 				break;
-			case 4:
+			case "4":
 				System.out.println("Digite o índice da paleta de sombras a ser atualizado: ");
 				int indicePaletaSombras = scanner.nextInt();
 				scanner.nextLine();
@@ -702,12 +697,12 @@ public class ProgramaCosmeticos {
 				System.out.println("Digite o novo número de cores: ");
 				int novoNumeroPaletaSombras = scanner.nextInt();
 
-				PaletaSombras paletaSombras = new PaletaSombras(novoNomePaletaSombras, novaMarcaPaletaSombras, novoPrecoPaletaSombras, novaCorPaletaSombras, novoNumeroPaletaSombras);
+				Maquiagem paletaSombras = new PaletaSombras(novoNomePaletaSombras, novaMarcaPaletaSombras, novoPrecoPaletaSombras, novaCorPaletaSombras, novoNumeroPaletaSombras);
 				estoqueMaquiagem.atualizarPaletaSombras(indicePaletaSombras, paletaSombras);
 
 				System.out.println("Máscara de cílios atualizado com sucesso!");
 				break;
-			case 5:
+			case "5":
 				System.out.println("Digite o índice do pincel a ser atualizado: ");
 				int indicePincel = scanner.nextInt();
 				scanner.nextLine();
@@ -731,12 +726,12 @@ public class ProgramaCosmeticos {
 				System.out.println("Digite o novo tamanho: ");
 				String novoTamanhoPincel = scanner.nextLine();
 
-				Pincel pincel = new Pincel(novoNomePincel, novaMarcaPincel, novoPrecoPincel, novaCorPincel, novoTamanhoPincel);
+				Maquiagem pincel = new Pincel(novoNomePincel, novaMarcaPincel, novoPrecoPincel, novaCorPincel, novoTamanhoPincel);
 				estoqueMaquiagem.atualizarPincel(indicePincel, pincel);
 
 				System.out.println("Pincel atualizado com sucesso!");
 				break;
-			case 6:
+			case "6":
 				continuarAtualizando = false;
 				exibirMenu();
 				break;
@@ -758,11 +753,10 @@ public class ProgramaCosmeticos {
 			System.out.println("4. Perfume");
 			System.out.println("5. Voltar ao menu principal");
 
-			int tipoDesodorante = scanner.nextInt();
-			scanner.nextLine();
+			String tipoDesodorante = scanner.nextLine();
 
 			switch (tipoDesodorante) {
-			case 1:
+			case "1":
 				System.out.println("Digite o índice do desodorante a ser atualizado: ");
 				int indiceDesodorante = scanner.nextInt();
 				scanner.nextLine();
@@ -786,11 +780,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe o novo tipo: ");
 				String novoTipoDesodorante = scanner.nextLine();
 
-				Desodorante desodoranteAtualizado = new Desodorante(novoNomeDesodorante, novaMarcaDesodorante, novoPrecoDesodorante, novaFragranciaDesodorante, novoTipoDesodorante);
-				estoquePerfumaria.atualizarDesodorante(tipoDesodorante, desodoranteAtualizado);
+				Perfumaria desodoranteAtualizado = new Desodorante(novoNomeDesodorante, novaMarcaDesodorante, novoPrecoDesodorante, novaFragranciaDesodorante, novoTipoDesodorante);
+				estoquePerfumaria.atualizarDesodorante(indiceDesodorante, desodoranteAtualizado);
 				System.out.println("Desodorante atualizado com sucesso!");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Digite o índice da hidratação corporal a ser atualizado: ");
 				int indiceHidratacaoCorporal = scanner.nextInt();
 				scanner.nextLine();
@@ -814,11 +808,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe o novo tipo de pele: ");
 				String novoTipoPele = scanner.nextLine();
 
-				HidratacaoCorporal hidratacaoCorporalAtualizado = new HidratacaoCorporal(novoNomeHidrataçaoCorporal, novaMarcaHidrataçaoCorporal, novoPrecoHidrataçaoCorporal, novaFragranciaHidrataçaoCorporal, novoTipoPele);
+				Perfumaria hidratacaoCorporalAtualizado = new HidratacaoCorporal(novoNomeHidrataçaoCorporal, novaMarcaHidrataçaoCorporal, novoPrecoHidrataçaoCorporal, novaFragranciaHidrataçaoCorporal, novoTipoPele);
 				estoquePerfumaria.atualizarHidratacaoCorporal(indiceHidratacaoCorporal, hidratacaoCorporalAtualizado);
 				System.out.println("Hidratação corporal atualizado com sucesso!");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Digite o índice do óleo corporal a ser atualizado: ");
 				int indiceOleoCorporal = scanner.nextInt();
 				scanner.nextLine();
@@ -839,11 +833,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe a nova fragrância: ");
 				String novaFragranciaOleoCorporal = scanner.nextLine();
 
-				OleoCorporal oleoCorporalAtualizado = new OleoCorporal(novoNomeOleoCorporal, novaMarcaOleoCorporal, novoPrecoOleoCorporal, novaFragranciaOleoCorporal);
+				Perfumaria oleoCorporalAtualizado = new OleoCorporal(novoNomeOleoCorporal, novaMarcaOleoCorporal, novoPrecoOleoCorporal, novaFragranciaOleoCorporal);
 				estoquePerfumaria.atualizarOleoCorporal(indiceOleoCorporal, oleoCorporalAtualizado);
 				System.out.println("Óleo corporal atualizado com sucesso!");
 				break;
-			case 4:
+			case "4":
 				System.out.println("Digite o índice do perfume a ser atualizado: ");
 				int indicePerfume = scanner.nextInt();
 				scanner.nextLine();
@@ -864,11 +858,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe a nova fragrância: ");
 				String fragranciaperfume = scanner.nextLine();
 
-				Perfume perfumeAtualizado = new Perfume(nomeperfume, marcaperfume, precoperfume, fragranciaperfume);
+				Perfumaria perfumeAtualizado = new Perfume(nomeperfume, marcaperfume, precoperfume, fragranciaperfume);
 				estoquePerfumaria.atualizarPerfume(indicePerfume, perfumeAtualizado);
 				System.out.println("Perfume atualizado com sucesso!");
 				break;
-			case 5:
+			case "5":
 				continuarAtualizando = false;
 				exibirMenu();
 				break;
@@ -889,11 +883,11 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
-			int tipoCondicionador = scanner.nextInt();
+			String tipoCondicionador = scanner.nextLine();
 			scanner.nextLine();
 
 			switch (tipoCondicionador) {
-			case 1:
+			case "1":
 				System.out.println("Digite o índice do condicionador a ser atualizado: ");
 				int indiceCondicionador = scanner.nextInt();
 				scanner.nextLine();
@@ -917,11 +911,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe o novo tipo: ");
 				String novoTipoCondicionador = scanner.nextLine();
 
-				Condicionador condicionadorAtualziado = new Condicionador(novoNomeCondicionador, novaMarcaCondicionador, novoPrecoCondicionador, novoTipoCabeloCondicionador, novoTipoCondicionador);
+				ProdutoCapilar condicionadorAtualziado = new Condicionador(novoNomeCondicionador, novaMarcaCondicionador, novoPrecoCondicionador, novoTipoCabeloCondicionador, novoTipoCondicionador);
 				estoqueCapilar.atualizarCondicionador(indiceCondicionador, condicionadorAtualziado);
 				System.out.println("Condicionador atualizado com sucesso!");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Digite o índice da máscara de hidratação a ser atualizado: ");
 				int indiceMascaraHidratacao = scanner.nextInt();
 				scanner.nextLine();
@@ -945,11 +939,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe o novo tipo: ");
 				String novoTipoMascaraHidratacao = scanner.nextLine();
 
-				MascaraHidratacao mascaraHidratacaoAtualizado = new MascaraHidratacao(novoNomeMascaraHidratacao, novaMarcaMascaraHidratacao, novoPrecoMascaraHidratacao, novoTipoCabeloMascaraHidratacao, novoTipoMascaraHidratacao);
+				ProdutoCapilar mascaraHidratacaoAtualizado = new MascaraHidratacao(novoNomeMascaraHidratacao, novaMarcaMascaraHidratacao, novoPrecoMascaraHidratacao, novoTipoCabeloMascaraHidratacao, novoTipoMascaraHidratacao);
 				estoqueCapilar.atualizarMascaraHidatracao(indiceMascaraHidratacao, mascaraHidratacaoAtualizado);
 				System.out.println("Máscara de hidratação atualizado com sucesso!");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Digite o índice do shampoo a ser atualizado: ");
 				int indiceShampoo = scanner.nextInt();
 				scanner.nextLine();
@@ -973,11 +967,11 @@ public class ProgramaCosmeticos {
 				System.out.println("Informe o novo tipo: ");
 				String novoTipoShampoo = scanner.nextLine();
 
-				Shampoo shampooAtualizado = new Shampoo(novoNomeShampoo, novaMarcaShampoo, novoPrecoShampoo, novoTipoCabeloShampoo, novoTipoShampoo);
+				ProdutoCapilar shampooAtualizado = new Shampoo(novoNomeShampoo, novaMarcaShampoo, novoPrecoShampoo, novoTipoCabeloShampoo, novoTipoShampoo);
 				estoqueCapilar.atualizarShampoo(indiceShampoo, shampooAtualizado);
 				System.out.println("Condicionador atualizado com sucesso!");
 				break;
-			case 4:
+			case "4":
 				continuarAtualizando = false;
 				exibirMenu();
 				break;
@@ -1000,11 +994,10 @@ public class ProgramaCosmeticos {
 			System.out.println("5. Pincel");
 			System.out.println("6. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine(); // Limpar o buffer do scanner
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				int quantidadeBases = estoqueMaquiagem.getQuantidadeBases();
 				System.out.println("Quantidade de bases: " + quantidadeBases);
 
@@ -1018,7 +1011,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 2:
+			case "2":
 				int quantidadeBatons = estoqueMaquiagem.getQuantidadeBatons();
 				System.out.println("Quantidade de batons: " + quantidadeBatons);
 
@@ -1032,7 +1025,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;	
-			case 3:
+			case "3":
 				int quantidadeMascaraCilios = estoqueMaquiagem.getQuantidadeMascaraCilios();
 				System.out.println("Quantidade de máscara de cílios: " + quantidadeMascaraCilios);
 
@@ -1046,7 +1039,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;	
-			case 4:
+			case "4":
 				int quantidadePaletaSombras = estoqueMaquiagem.getQuantidadePaletaSombras();
 				System.out.println("Quantidade de paletas de sombras: " + quantidadePaletaSombras);
 
@@ -1060,7 +1053,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 5:
+			case "5":
 				int quantidadePincel = estoqueMaquiagem.getQuantidadePincels();
 				System.out.println("Quantidade de pinceis: " + quantidadePincel);
 
@@ -1074,7 +1067,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 6:
+			case "6":
 				continuarConsultando = false;
 				exibirMenu();
 				break;
@@ -1096,11 +1089,10 @@ public class ProgramaCosmeticos {
 			System.out.println("4. Perfume");
 			System.out.println("5. Voltar ao menu principal");
 			
-			int opcao = scanner.nextInt();
-			scanner.nextLine();
+			String opcao = scanner.nextLine();
 			
 			switch (opcao) {
-			case 1:
+			case "1":
 				int quantidadeDesodorante = estoquePerfumaria.getQuantidadeDesodorante();
 				System.out.println("Quantidade de desodorantes: " + quantidadeDesodorante);
 				
@@ -1113,7 +1105,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 2:
+			case "2":
 				int quantidadeHidratacaoCorporal = estoquePerfumaria.getQuantidadeHidratacaoCorporal();
 				System.out.println("Quantidade de hidratações corporais: " + quantidadeHidratacaoCorporal);
 				
@@ -1126,7 +1118,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índicie inválido");
 				}
 				break;
-			case 3:
+			case "3":
 				int quantidadeOleoCorporal = estoquePerfumaria.getQuantidadeOleoCorporal();
 				System.out.println("Quantidade de óleos corporais: " + quantidadeOleoCorporal);
 				
@@ -1139,7 +1131,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 4:
+			case "4":
 				int quantidadePerfume = estoquePerfumaria.getQuantidadePerfume();
 				System.out.println("Quantidade de perfumes: " + quantidadePerfume);
 				
@@ -1152,7 +1144,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 5:
+			case "5":
 				continuarConsultando = false;
 				exibirMenu();
 				break;
@@ -1173,11 +1165,10 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine();
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				int quantidadeCondicionador = estoqueCapilar.getQuantidadeCondicionador();
 				System.out.println("Quantidade de condicionadores: " + quantidadeCondicionador);
 
@@ -1190,7 +1181,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 2:
+			case "2":
 				int quantidadeMascaraHidratacao = scanner.nextInt();
 				System.out.println("Quantidade de máscara de hidratação: " + quantidadeMascaraHidratacao);
 
@@ -1203,7 +1194,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 3:
+			case "3":
 				int quantidadeShampoo = estoqueCapilar.getQuantidadeShampo();
 				System.out.println("Quantidade de shampoo" + quantidadeShampoo);
 
@@ -1216,7 +1207,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 4:
+			case "4":
 				continuarConsultando = false;
 				exibirMenu();
 				break;
@@ -1239,41 +1230,40 @@ public class ProgramaCosmeticos {
 			System.out.println("5. Pincel");
 			System.out.println("6. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine(); // Limpar o buffer do scanner
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o índice da base a ser removida:");
 				int indiceBase = scanner.nextInt();
 				estoqueMaquiagem.removerBase(indiceBase);
 				System.out.println("Base removida com sucesso.");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Informe o índice do batom a ser removido:");
 				int indiceBatom = scanner.nextInt();
 				estoqueMaquiagem.removerBatom(indiceBatom);
 				System.out.println("Batom removido com sucesso.");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o índice da máscara de cílios a ser removida:");
 				int indiceMascaraCilios = scanner.nextInt();
 				estoqueMaquiagem.removerMascaraCilios(indiceMascaraCilios);
 				System.out.println("Máscara de Cílios removido com sucesso.");
 				break;
-			case 4:
+			case "4":
 				System.out.println("Informe o índice da paleta de sombras a ser removida:");
 				int indicePaletaSombras = scanner.nextInt();
 				estoqueMaquiagem.removerPaletaSombras(indicePaletaSombras);
 				System.out.println("Paleta de Sombras removido com sucesso.");
 				break;
-			case 5:
+			case "5":
 				System.out.println("Informe o índice do pincel a ser removido:");
 				int indicePincel = scanner.nextInt();
 				estoqueMaquiagem.removerPinceis(indicePincel);
 				System.out.println("Pincel removido com sucesso.");
 				break;
-			case 6:
+			case "6":
 				continuarRemovendo = false;
 				exibirMenu();
 				break;
@@ -1295,35 +1285,35 @@ public class ProgramaCosmeticos {
 			System.out.println("4. Perfume");
 			System.out.println("5. Voltar ao menu principal");
 			
-			int opcao = scanner.nextInt();
+			String opcao = scanner.nextLine();
 			scanner.nextLine();
 			
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o índice do desodorante a ser removido:");
 				int indiceDesodorante = scanner.nextInt();
 				estoquePerfumaria.removerDesodorante(indiceDesodorante);
 				System.out.println("Desodorante removido com sucesso.");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Informe o índice da hidratação corporal a ser removido:");
 				int indiceHidratacaoCorporal = scanner.nextInt();
 				estoquePerfumaria.removerHidratacaoCorporal(indiceHidratacaoCorporal);
 				System.out.println("Hidratação corporal removido com sucesso.");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o índice do óleo corporal a ser removido:");
 				int indiceOleoCorporal = scanner.nextInt();
 				estoquePerfumaria.removerOleoCorporal(indiceOleoCorporal);
 				System.out.println("Óleo corporal removido com sucesso.");
 				break;
-			case 4:
+			case "4":
 				System.out.println("Informe o índice do perfume a ser removido:");
 				int indicePerfume = scanner.nextInt();
 				estoquePerfumaria.removerPerfume(indicePerfume);
 				System.out.println("Perfume removido com sucesso.");
 				break;
-			case 5:
+			case "5":
 				continuarRemovendo = false;
 				exibirMenu();
 				break;
@@ -1344,29 +1334,28 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
-			int opcao = scanner.nextInt();
-			scanner.nextLine();
+			String opcao = scanner.nextLine();
 
 			switch (opcao) {
-			case 1:
+			case "1":
 				System.out.println("Informe o índice do condicionador a ser removido:");
 				int indiceCondicionador = scanner.nextInt();
 				estoqueCapilar.removerCondicionador(indiceCondicionador);
 				System.out.println("Condicionador removido com sucesso.");
 				break;
-			case 2:
+			case "2":
 				System.out.println("Informe o índice da máscara de hidratação a ser removida:");
 				int indiceMascaraHidratacao = scanner.nextInt();
 				estoqueCapilar.removerMascaraHidatracao(indiceMascaraHidratacao);
 				System.out.println("Máscara de hidatração removida com sucesso.");
 				break;
-			case 3:
+			case "3":
 				System.out.println("Informe o índice do shampoo a ser removido:");
 				int indiceShampoo = scanner.nextInt();
 				estoqueCapilar.removerShampoo(indiceShampoo);
 				System.out.println("Shampoo removido com sucesso.");
 				break;
-			case 4:
+			case "4":
 				continuarRemovendo = false;
 				exibirMenu();
 				break;
@@ -1408,10 +1397,10 @@ public class ProgramaCosmeticos {
 			System.out.println("5. Pincel");
 			System.out.println("6. Voltar ao menu principal");
 
-			int escolhaTipo = scanner.nextInt();
+			String escolhaTipo = scanner.nextLine();
 
 			switch (escolhaTipo) {
-			case 1:
+			case "1":
 				System.out.print("Escolha a base pelo índice: ");
 				int escolhaBase = scanner.nextInt();
 				if (escolhaBase >= 0 && escolhaBase < checarEstoqueMaquiagem.getNumeroBases()) {
@@ -1426,7 +1415,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 2:	
+			case "2":	
 				System.out.print("Escolha o batom pelo índice: ");
 				int escolhaBatom = scanner.nextInt();
 				if (escolhaBatom >= 0 && escolhaBatom < checarEstoqueMaquiagem.getNumeroBatons()) {
@@ -1441,7 +1430,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.print("Escolha a máscara de cílios pelo índice: ");
 				int escolhaMascaraCilios = scanner.nextInt();
 				if (escolhaMascaraCilios >= 0 && escolhaMascaraCilios < checarEstoqueMaquiagem.getNumeroMascarasCilios()) {
@@ -1456,7 +1445,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 4:	
+			case "4":	
 				System.out.print("Escolha a paleta de sombras pelo índice: ");
 				int escolhaPaletaSombras = scanner.nextInt();
 				if (escolhaPaletaSombras >= 0 && escolhaPaletaSombras < checarEstoqueMaquiagem.getNumeroPaletasSombras()) {
@@ -1471,7 +1460,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 5:	
+			case "5":	
 				System.out.print("Escolha o pincel pelo índice: ");
 				int escolhaPincel = scanner.nextInt();
 				if (escolhaPincel >= 0 && escolhaPincel < checarEstoqueMaquiagem.getNumeroPinceis()) {
@@ -1486,7 +1475,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 6:
+			case "6":
 				continuarAplicandoProdutoDesconto = false;
 				exibirMenu();
 				break;
@@ -1510,10 +1499,10 @@ public class ProgramaCosmeticos {
 			System.out.println("4. Perfume");
 			System.out.println("5. Voltar ao menu principal");
 			
-			int escolhaTipo = scanner.nextInt();
+			String escolhaTipo = scanner.nextLine();
 			
 			switch (escolhaTipo) {
-			case 1:
+			case "1":
 				System.out.print("Escolha o desodorante pelo índice: ");
 				int escolhaDesodorante = scanner.nextInt();
 				if (escolhaDesodorante >= 0 && escolhaDesodorante < checarEstoquePerfumaria.getNumeroDesodorante()) {
@@ -1528,7 +1517,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 2:
+			case "2":
 				System.out.print("Escolha a hidratação corporal pelo índice: ");
 				int escolhaHidratacaoCorporal = scanner.nextInt();
 				if (escolhaHidratacaoCorporal >= 0 && escolhaHidratacaoCorporal < checarEstoquePerfumaria.getNumeroHidratacaoCorporal()) {
@@ -1543,7 +1532,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.print("Escolha o óleo corporal pelo índice: ");
 				int escolhaOleoCorporal = scanner.nextInt();
 				if (escolhaOleoCorporal >= 0 && escolhaOleoCorporal < checarEstoquePerfumaria.getNumeroOleoCorporal()) {
@@ -1558,7 +1547,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 4:
+			case "4":
 				System.out.print("Escolha o óleo corporal pelo índice: ");
 				int escolhaPerfume = scanner.nextInt();
 				if (escolhaPerfume >= 0 && escolhaPerfume < checarEstoquePerfumaria.getNumeroPerfume()) {
@@ -1573,7 +1562,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido");
 				}
 				break;
-			case 5:
+			case "5":
 				continuarAplicandoProdutoDesconto = false;
 				exibirMenu();
 				break;
@@ -1596,10 +1585,10 @@ public class ProgramaCosmeticos {
 			System.out.println("3. Shampoo");
 			System.out.println("4. Voltar ao menu principal");
 
-			int escolhaTipo = scanner.nextInt();
+			String escolhaTipo = scanner.nextLine();
 
 			switch (escolhaTipo) {
-			case 1:
+			case "1":
 				System.out.print("Escolha o condicionador pelo índice: ");
 				int escolhaCondicionador = scanner.nextInt();
 				if (escolhaCondicionador >= 0 && escolhaCondicionador < checarEstoqueProdutoCapilar.getNumeroCondicionador()) {
@@ -1614,7 +1603,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 2:
+			case "2":
 				System.out.print("Escolha a máscara de hidratação pelo índice: ");
 				int escolhaMascaraHidratacao = scanner.nextInt();
 				if (escolhaMascaraHidratacao >= 0 && escolhaMascaraHidratacao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
@@ -1629,7 +1618,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.print("Escolha o shampoo pelo índice: ");
 				int escolhaShampoo = scanner.nextInt();
 				if (escolhaShampoo >= 0 && escolhaShampoo < checarEstoqueProdutoCapilar.getNumeroShampoo()) {
@@ -1644,7 +1633,7 @@ public class ProgramaCosmeticos {
 					System.out.println("Índice inválido!");
 				}
 				break;
-			case 4:
+			case "4":
 				continuarAplicandoProdutoDesconto = false;
 				exibirMenu();
 				break;

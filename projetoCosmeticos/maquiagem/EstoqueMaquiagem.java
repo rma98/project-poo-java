@@ -20,20 +20,20 @@ public class EstoqueMaquiagem {
 
 	// Métodos de adição de produtos
 
-	public void adicionarBase(Base base) {
-		bases.add(base);
+	public void adicionarBase(Maquiagem base) {
+		bases.add((Base) base);
 	}
 
-	public void adicionarBatom(Batom batom) {
-		batons.add(batom);
+	public void adicionarBatom(Maquiagem batom) {
+		batons.add((Batom) batom);
 	}
 
-	public void adicionarMascaraCilios(MascaraCilios mascaraCilios) {
-		mascarasCilios.add(mascaraCilios);
+	public void adicionarMascaraCilios(Maquiagem mascaraCilios) {
+		mascarasCilios.add((MascaraCilios) mascaraCilios);
 	}
 
-	public void adicionarPaletaSombras(PaletaSombras paletaSombras) {
-		paletasSombras.add(paletaSombras);
+	public void adicionarPaletaSombras(Maquiagem paletaSombras) {
+		paletasSombras.add((PaletaSombras) paletaSombras);
 	}
 
 	public void adicionarPincel(Pincel pincel) {
@@ -42,41 +42,41 @@ public class EstoqueMaquiagem {
 
 	// Métodos de atualização de produtos
 
-	public void atualizarBase(int index, Base base) {
+	public void atualizarBase(int index, Maquiagem baseAtualizado) {
 		if (index >= 0 && index < bases.size()) {
-			bases.set(index, base);
+			bases.set(index, (Base) baseAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarBatom(int index, Batom batom) {
+	public void atualizarBatom(int index, Maquiagem batomAtualizado) {
 		if (index >= 0 && index < batons.size()) {
-			batons.set(index, batom);
+			batons.set(index, (Batom) batomAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarMascaraCilios(int index, MascaraCilios mascaraCilios) {
+	public void atualizarMascaraCilios(int index, Maquiagem mascaraCilios) {
 		if (index >= 0 && index < mascarasCilios.size()) {
-			mascarasCilios.set(index, mascaraCilios);
+			mascarasCilios.set(index, (MascaraCilios) mascaraCilios);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarPaletaSombras(int index, PaletaSombras paletaSombras) {
+	public void atualizarPaletaSombras(int index, Maquiagem paletaSombras) {
 		if (index >= 0 && index < paletasSombras.size()) {
-			paletasSombras.set(index, paletaSombras);
+			paletasSombras.set(index, (PaletaSombras) paletaSombras);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarPincel(int index, Pincel pincel) {
+	public void atualizarPincel(int index, Maquiagem pincel) {
 		if (index >= 0 && index < pinceis.size()) {
-			pinceis.set(index, pincel);
+			pinceis.set(index, (Pincel) pincel);
 		} else {
 			System.out.println("Índice inválido");
 		}

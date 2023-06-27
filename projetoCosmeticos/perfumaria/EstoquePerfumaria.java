@@ -16,49 +16,49 @@ public class EstoquePerfumaria {
 		perfumes = new ArrayList<>();
 	}
 
-	public void adicionarDesodorante(Desodorante desodorante) {
-		desodorantes.add(desodorante);
+	public void adicionarDesodorante(Perfumaria desodorante) {
+		desodorantes.add((Desodorante) desodorante);
 	}
 
-	public void adicionarHidatracaoCorporal(HidratacaoCorporal hidratacaoCorporal) {
-		hidratacaoCorporais.add(hidratacaoCorporal);
+	public void adicionarHidatracaoCorporal(Perfumaria hidratacaoCorporal) {
+		hidratacaoCorporais.add((HidratacaoCorporal) hidratacaoCorporal);
 	}
 
-	public void adicionarOleoCorporal(OleoCorporal oeloCorporal) {
-		oleoCorporais.add(oeloCorporal);
+	public void adicionarOleoCorporal(Perfumaria oeloCorporal) {
+		oleoCorporais.add((OleoCorporal) oeloCorporal);
 	}
 
-	public void adicionarPerfume(Perfume perfume) {
-		perfumes.add(perfume);
+	public void adicionarPerfume(Perfumaria perfume) {
+		perfumes.add((Perfume) perfume);
 	}
 
-	public void atualizarDesodorante(int index, Desodorante desodorante) {
+	public void atualizarDesodorante(int index, Perfumaria desodoranteAtualizado) {
 		if (index >= 0 && index < desodorantes.size()) {
-			desodorantes.set(index, desodorante);
+			desodorantes.set(index, (Desodorante) desodoranteAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarHidratacaoCorporal(int index, HidratacaoCorporal hidratacaoCorporal) {
+	public void atualizarHidratacaoCorporal(int index, Perfumaria hidratacaoCorporalAtualizado) {
 		if (index >= 0 && index < hidratacaoCorporais.size()) {
-			hidratacaoCorporais.set(index, hidratacaoCorporal);
+			hidratacaoCorporais.set(index, (HidratacaoCorporal) hidratacaoCorporalAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarOleoCorporal(int index, OleoCorporal oleoCorporal) {
+	public void atualizarOleoCorporal(int index, Perfumaria oleoCorporalAtualizado) {
 		if (index >= 0 && index < oleoCorporais.size()) {
-			oleoCorporais.set(index, oleoCorporal);
+			oleoCorporais.set(index, (OleoCorporal) oleoCorporalAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarPerfume(int index, Perfume perfume) {
+	public void atualizarPerfume(int index, Perfumaria perfumeAtualizado) {
 		if (index >= 0 && index < perfumes.size()) {
-			perfumes.set(index, perfume);
+			perfumes.set(index, (Perfume) perfumeAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}

@@ -14,37 +14,37 @@ public class EstoqueProdutoCapilar {
 		shampoos = new ArrayList<>();
 	}
 
-	public void adicionarCondicionador(Condicionador condicionador) {
-		condicionadores.add(condicionador);
+	public void adicionarCondicionador(ProdutoCapilar condicionador) {
+		condicionadores.add((Condicionador) condicionador);
 	}
 
-	public void adicionarMascaraHidatracao(MascaraHidratacao mascaraHidratacao) {
-		mascaraHidratacaos.add(mascaraHidratacao);
+	public void adicionarMascaraHidatracao(ProdutoCapilar mascaraHidratacao) {
+		mascaraHidratacaos.add((MascaraHidratacao) mascaraHidratacao);
 	}
 
-	public void adicionarShampoo(Shampoo shampoo) {
-		shampoos.add(shampoo);
+	public void adicionarShampoo(ProdutoCapilar shampoo) {
+		shampoos.add((Shampoo) shampoo);
 	}
 
-	public void atualizarCondicionador(int index, Condicionador condicionador) {
+	public void atualizarCondicionador(int index, ProdutoCapilar condicionadorAtualziado) {
 		if (index >= 0 && index < condicionadores.size()) {
-			condicionadores.set(index, condicionador);
+			condicionadores.set(index, (Condicionador) condicionadorAtualziado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarMascaraHidatracao(int index, MascaraHidratacao mascaraHidratacao) {
+	public void atualizarMascaraHidatracao(int index, ProdutoCapilar mascaraHidratacaoAtualizado) {
 		if (index >= 0 && index < mascaraHidratacaos.size()) {
-			mascaraHidratacaos.set(index, mascaraHidratacao);
+			mascaraHidratacaos.set(index, (MascaraHidratacao) mascaraHidratacaoAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
 	}
 
-	public void atualizarShampoo(int index, Shampoo shampoo) {
+	public void atualizarShampoo(int index, ProdutoCapilar shampooAtualizado) {
 		if (index >= 0 && index < shampoos.size()) {
-			shampoos.set(index, shampoo);
+			shampoos.set(index, (Shampoo) shampooAtualizado);
 		} else {
 			System.out.println("Índice inválido");
 		}
