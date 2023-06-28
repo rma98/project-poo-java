@@ -2,8 +2,8 @@ package produtocapilar;
 
 public class MascaraHidratacao extends ProdutoCapilar {
 
-	public MascaraHidratacao(String nome, String marca, double preco, String tipoCabelo, String tipo) {
-		super(nome, marca, preco, tipoCabelo, tipo);
+	public MascaraHidratacao(String nome, String marca, double preco, String tipoCabelo) {
+		super(nome, marca, preco, tipoCabelo);
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -2,8 +2,8 @@ package produtocapilar;
 
 public class Condicionador extends ProdutoCapilar {
 
-	public Condicionador(String nome, String marca, double preco, String tipoCabelo, String tipo) {
-		super(nome, marca, preco, tipoCabelo, tipo);
+	public Condicionador(String nome, String marca, double preco, String tipoCabelo) {
+		super(nome, marca, preco, tipoCabelo);
 	}
 	
 	public Condicionador() {

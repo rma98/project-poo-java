@@ -82,7 +82,6 @@ public class EstoqueProdutoCapilar {
 			System.out.println("Marca: " + condicionador.getMarca());
 			System.out.println("Preço: " + condicionador.getPreco());
 			System.out.println("Tipo de cabelo: " + condicionador.getTipoCabelo());
-			System.out.println("Tipo de cabelo: " + condicionador.getTipo());
 			System.out.println("Categoria: Produtos Capilares");
 			System.out.println("======================");
 			return condicionador;
@@ -100,7 +99,6 @@ public class EstoqueProdutoCapilar {
 			System.out.println("Marca: " + mascaraHidratacao.getMarca());
 			System.out.println("Preço: " + mascaraHidratacao.getPreco());
 			System.out.println("Tipo de cabelo: " + mascaraHidratacao.getTipoCabelo());
-			System.out.println("Tipo de cabelo: " + mascaraHidratacao.getTipo());
 			System.out.println("Categoria: Produtos Capilares");
 			System.out.println("======================");
 			return mascaraHidratacao;
@@ -118,7 +116,6 @@ public class EstoqueProdutoCapilar {
 			System.out.println("Marca: " + shampoo.getMarca());
 			System.out.println("Preço: " + shampoo.getPreco());
 			System.out.println("Tipo de cabelo: " + shampoo.getTipoCabelo());
-			System.out.println("Tipo de cabelo: " + shampoo.getTipo());
 			System.out.println("Categoria: Produtos Capilares");
 			System.out.println("======================");
 			return shampoo;

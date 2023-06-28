@@ -36,8 +36,8 @@ public class EstoqueMaquiagem {
 		paletasSombras.add((PaletaSombras) paletaSombras);
 	}
 
-	public void adicionarPincel(Pincel pincel) {
-		pinceis.add(pincel);
+	public void adicionarPincel(Maquiagem pincel) {
+		pinceis.add((Pincel) pincel);
 	}
 
 	// Métodos de atualização de produtos
