@@ -40,17 +40,18 @@ public class HRCosmeticos {
 		boolean cosmeticos = true;
 
 		while (cosmeticos) {
-			boolean continuarMenu = true;
-			String tipoCosmetico;
-
-			System.out.println("---------- CHR Cosmésticos ----------");
+			System.out.println("---------- HR Cosmésticos ----------");
 			System.out.println("1. Maquiagem");
 			System.out.println("2. Perfumaria");
 			System.out.println("3. Produtos Capilares");
 			System.out.println("4. Encerrar programa");
 			System.out.println("------------------------------");
-			tipoCosmetico = scanner.nextLine();
-
+			
+			System.out.print("Escolha uma opção: ");
+			String tipoCosmetico = scanner.nextLine();
+			
+			boolean continuarMenu = true;
+			
 			switch (tipoCosmetico) {
 			case "1":
 				exibirMenu();
@@ -1388,7 +1389,7 @@ public class HRCosmeticos {
 				if (escolhaBase >= 0 && escolhaBase < checarEstoqueMaquiagem.getNumeroBases()) {
 					Base baseEscolhida = checarEstoqueMaquiagem.getBasePorIndice(escolhaBase);
 
-					System.out.print("Digite o valor do desconto para a base: " + baseEscolhida.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para a base " + baseEscolhida.getNome() + ": ");
 					double descontoBase = scanner.nextDouble();
 
 					baseEscolhida.calcularDesconto(descontoBase);
@@ -1403,7 +1404,7 @@ public class HRCosmeticos {
 				if (escolhaBatom >= 0 && escolhaBatom < checarEstoqueMaquiagem.getNumeroBatons()) {
 					Batom batomEscolhido = checarEstoqueMaquiagem.getBatomPorIndice(escolhaBatom);
 
-					System.out.print("Digite o valor do desconto para o batom: " + batomEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para o batom " + batomEscolhido.getNome() + ": ");
 					double descontoBatom = scanner.nextDouble();
 
 					batomEscolhido.calcularDesconto(descontoBatom);
@@ -1418,7 +1419,7 @@ public class HRCosmeticos {
 				if (escolhaMascaraCilios >= 0 && escolhaMascaraCilios < checarEstoqueMaquiagem.getNumeroMascarasCilios()) {
 					MascaraCilios mascaraCiliosEscolhido = checarEstoqueMaquiagem.getMascaraCiliosPorIndice(escolhaMascaraCilios);
 
-					System.out.print("Digite o valor do desconto para a máscara de cílios: " + mascaraCiliosEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para a máscara de cílios " + mascaraCiliosEscolhido.getNome() + ": ");
 					double descontoMascaraCilios = scanner.nextDouble();
 
 					mascaraCiliosEscolhido.calcularDesconto(descontoMascaraCilios);
@@ -1433,7 +1434,7 @@ public class HRCosmeticos {
 				if (escolhaPaletaSombras >= 0 && escolhaPaletaSombras < checarEstoqueMaquiagem.getNumeroPaletasSombras()) {
 					PaletaSombras paletaSombrasEscolhido = checarEstoqueMaquiagem.getPaletaSombrasPorIndice(escolhaPaletaSombras);
 
-					System.out.print("Digite o valor do desconto para a paleta de sombras: " + paletaSombrasEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para a paleta de sombras " + paletaSombrasEscolhido.getNome() + ": ");
 					double descontoPaletaSombras = scanner.nextDouble();
 
 					paletaSombrasEscolhido.calcularDesconto(descontoPaletaSombras);
@@ -1448,7 +1449,7 @@ public class HRCosmeticos {
 				if (escolhaPincel >= 0 && escolhaPincel < checarEstoqueMaquiagem.getNumeroPinceis()) {
 					Pincel pincelEscolhido = checarEstoqueMaquiagem.getNumeroPincelPorIndice(escolhaPincel);
 
-					System.out.print("Digite o valor do desconto para o pincel: " + pincelEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para o pincel " + pincelEscolhido.getNome() + ": ");
 					double descontoPincel = scanner.nextDouble();
 
 					pincelEscolhido.calcularDesconto(descontoPincel);
@@ -1490,7 +1491,7 @@ public class HRCosmeticos {
 				if (escolhaDesodorante >= 0 && escolhaDesodorante < checarEstoquePerfumaria.getNumeroDesodorante()) {
 					Desodorante desodoranteEscolhido = checarEstoquePerfumaria.getNumeroDesodorantePorIndice(escolhaDesodorante);
 					
-					System.out.println("Digite o valor do desconto para o desodorante: " + desodoranteEscolhido.getNome() + ": ");
+					System.out.println("Digite o valor do desconto para o desodorante " + desodoranteEscolhido.getNome() + ": ");
 					double descontoDesodorante = scanner.nextDouble();
 					
 					desodoranteEscolhido.calcularDesconto(descontoDesodorante);
@@ -1505,7 +1506,7 @@ public class HRCosmeticos {
 				if (escolhaHidratacaoCorporal >= 0 && escolhaHidratacaoCorporal < checarEstoquePerfumaria.getNumeroHidratacaoCorporal()) {
 					HidratacaoCorporal HidratacaocorporalEscolhido = checarEstoquePerfumaria.getNumeroHidatracaoCorporalPorIndice(escolhaHidratacaoCorporal);
 					
-					System.out.println("Digite o valor do desconto para a hidratação corporal: " + HidratacaocorporalEscolhido.getNome() + ": ");
+					System.out.println("Digite o valor do desconto para a hidratação corporal " + HidratacaocorporalEscolhido.getNome() + ": ");
 					double descontoHidratacao = scanner.nextDouble();
 					
 					HidratacaocorporalEscolhido.calcularDesconto(descontoHidratacao);
@@ -1520,7 +1521,7 @@ public class HRCosmeticos {
 				if (escolhaOleoCorporal >= 0 && escolhaOleoCorporal < checarEstoquePerfumaria.getNumeroOleoCorporal()) {
 					OleoCorporal oleoCorporalEscolhido = checarEstoquePerfumaria.getNumeroOleoCorporalPorIndice(escolhaOleoCorporal);
 					
-					System.out.println("Digite o valor do desconto para o óleo corporal: " + oleoCorporalEscolhido.getNome() + ": ");
+					System.out.println("Digite o valor do desconto para o óleo corporal " + oleoCorporalEscolhido.getNome() + ": ");
 					double descontoOleoCorporal = scanner.nextDouble();
 					
 					oleoCorporalEscolhido.calcularDesconto(descontoOleoCorporal);
@@ -1535,7 +1536,7 @@ public class HRCosmeticos {
 				if (escolhaPerfume >= 0 && escolhaPerfume < checarEstoquePerfumaria.getNumeroPerfume()) {
 					Perfume perfumeEscoliho = checarEstoquePerfumaria.getNumeroPerfumePorIndice(escolhaPerfume);
 					
-					System.out.println("Digite o valor do desconto para o perfume: " + perfumeEscoliho.getNome() + ": ");
+					System.out.println("Digite o valor do desconto para o perfume " + perfumeEscoliho.getNome() + ": ");
 					double descontoPerfume = scanner.nextDouble();
 					
 					perfumeEscoliho.calcularDesconto(descontoPerfume);
@@ -1576,7 +1577,7 @@ public class HRCosmeticos {
 				if (escolhaCondicionador >= 0 && escolhaCondicionador < checarEstoqueProdutoCapilar.getNumeroCondicionador()) {
 					Condicionador condicionadorEscolhido = checarEstoqueProdutoCapilar.getNumeroCondicionadorPorIndice(escolhaCondicionador);
 
-					System.out.print("Digite o valor do desconto para o condicionador: " + condicionadorEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para o condicionador " + condicionadorEscolhido.getNome() + ": ");
 					double descontoCondicionador = scanner.nextDouble();
 
 					condicionadorEscolhido.calcularDesconto(descontoCondicionador);
@@ -1591,7 +1592,7 @@ public class HRCosmeticos {
 				if (escolhaMascaraHidratacao >= 0 && escolhaMascaraHidratacao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
 					MascaraHidratacao mascaraHidratacaoEscolhido = checarEstoqueProdutoCapilar.getNumeroMascaraHidatracaoPorIndice(escolhaMascaraHidratacao);
 
-					System.out.print("Digite o valor do desconto para o condicionador: " + mascaraHidratacaoEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para o condicionador " + mascaraHidratacaoEscolhido.getNome() + ": ");
 					double descontoMascaraHidratacao = scanner.nextDouble();
 
 					mascaraHidratacaoEscolhido.calcularDesconto(descontoMascaraHidratacao);
@@ -1606,7 +1607,7 @@ public class HRCosmeticos {
 				if (escolhaShampoo >= 0 && escolhaShampoo < checarEstoqueProdutoCapilar.getNumeroShampoo()) {
 					Shampoo shampooEscolhido = checarEstoqueProdutoCapilar.getNumeroShampooPorIndice(escolhaShampoo);
 
-					System.out.print("Digite o valor do desconto para o shampoo: " + shampooEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para o shampoo " + shampooEscolhido.getNome() + ": ");
 					double descontoShampoo = scanner.nextDouble();
 
 					shampooEscolhido.calcularDesconto(descontoShampoo);
