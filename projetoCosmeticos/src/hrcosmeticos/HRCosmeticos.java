@@ -1531,7 +1531,7 @@ public class HRCosmeticos {
 				}
 				break;
 			case "4":
-				System.out.print("Escolha o óleo corporal pelo índice: ");
+				System.out.print("Escolha o perfume pelo índice: ");
 				int escolhaPerfume = scanner.nextInt();
 				if (escolhaPerfume >= 0 && escolhaPerfume < checarEstoquePerfumaria.getNumeroPerfume()) {
 					Perfume perfumeEscoliho = checarEstoquePerfumaria.getNumeroPerfumePorIndice(escolhaPerfume);
@@ -1592,7 +1592,7 @@ public class HRCosmeticos {
 				if (escolhaMascaraHidratacao >= 0 && escolhaMascaraHidratacao < checarEstoqueProdutoCapilar.getNumeroMascaraHidatracao()) {
 					MascaraHidratacao mascaraHidratacaoEscolhido = checarEstoqueProdutoCapilar.getNumeroMascaraHidatracaoPorIndice(escolhaMascaraHidratacao);
 
-					System.out.print("Digite o valor do desconto para o condicionador " + mascaraHidratacaoEscolhido.getNome() + ": ");
+					System.out.print("Digite o valor do desconto para a máscara de hidratação" + mascaraHidratacaoEscolhido.getNome() + ": ");
 					double descontoMascaraHidratacao = scanner.nextDouble();
 
 					mascaraHidratacaoEscolhido.calcularDesconto(descontoMascaraHidratacao);
