@@ -1,4 +1,4 @@
-# ProgramaCosmeticos
+# HRCosmeticos
 O HRCosmeticos é um sistema de gerenciamento de estoque desenvolvido em equipe para uma loja de cosméticos. O objetivo principal é oferecer uma solução eficiente para controlar produtos de maquiagem, perfumaria e produtos capilares.
 
 # Funcionalidades
