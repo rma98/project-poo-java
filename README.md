@@ -21,8 +21,8 @@ O HRCosmeticos é um sistema de gerenciamento de estoque desenvolvido em equipe 
 Contribuições para melhorias são sempre bem-vindas! Se você tiver alguma sugestão, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 # Contato
-Para mais informações, entre em contato com a equipe do ProgramaCosmeticos:
+Para mais informações, entre em contato com a equipe do HRCosmeticos:
 
-*E-mail: robalbuquerque98@gmail.com
+* E-mail: robalbuquerque98@gmail.com
 * GitHub: [github.com/rma98/project-poo-java](https://github.com/rma98/project-poo-java.git)
 * LinkedIn: [linkedin.com/in/robson-monteiro-de-albuquerque](https://www.linkedin.com/in/robson-monteiro-de-albuquerque-8b3853230)
