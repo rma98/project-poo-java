@@ -15,7 +15,7 @@ O HRCosmeticos é um sistema de gerenciamento de estoque desenvolvido em equipe 
 # Como utilizar
 1. Clone este repositório em sua máquina local.
 2. Abra o projeto em sua IDE de preferência.
-3.Execute o arquivo ProgramaCosmeticos.java para iniciar o programa.
+3.Execute o arquivo HRCosmeticos.java para iniciar o programa.
 4. Siga as opções do menu para interagir com as funcionalidades do sistema.
 # Contribuição
 Contribuições para melhorias são sempre bem-vindas! Se você tiver alguma sugestão, sinta-se à vontade para abrir uma issue ou enviar um pull request.
